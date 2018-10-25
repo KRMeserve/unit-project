@@ -12,7 +12,7 @@ const circuitController = require('./controllers/circuit.js');
 app.use('/circuit', circuitController);
 
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log('listening...');
 });
 
