@@ -1,7 +1,6 @@
 ## APP IDEA:
 
 - Social Media for Web Developers (to create and customize their portfolios, showcase it, and see each others)
-- Make a (Simple) Puzzle / Sudoku Game 
 
 
 ### TECHNICAL GOALS:
