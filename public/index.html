@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app='CircuitApp'>
 <meta charset="utf-8">
-<title>Index</title>
+<title>Circuit Connection</title>
+<link rel="stylesheet" href="css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js" charset="utf-8"></script>
 <script src="/js/app.js"></script>
 <link rel="icon" href="/img/favicon.png" type="image/png">
 </head>
 
 <body ng-controller="MainController as ctrl">
+    <div class="sWidth sHeight">
+        <img src="./img/circuit.jpeg" alt="Circuit Connection BG" class="sWidth sHeight absolute">
+        <div class="sWidth sHeight absolute bgPurple30"></div>
+        <div class="sWidth sHeight absolute dFlex flexRow">
+            <div class="flex1 dFlex center padH40 flexColumn">
+                <h1 class="fAclonica fSize6 fWhite borderBox">CIRCUIT CONNECTION</h1>
+                <div class="fWidth height40"></div>
+                <p class="fWidth fWhite fAclonica fSize2">a place for product builders to connect</p>
+            </div>
+            <form class="flex1 bgWhite75 dFlex center" ng-submit="ctrl.createUser()">
+                <div class="widthP80 dFlex flexColumn">
+                    <div class="fWidth height60 border15Purple dFlex flexRow">
+                        <div class="flex1 dFlex center bgWhite fSize2 fAclonica fPurple cPointer hoverGreen">SIGN UP</div>
+                        <div class="flex1 dFlex center bgPurple fSize2 fAclonica fWhite border3White cPointer hoverGreen">SIGN IN</div>
+                    </div>
+                    <div class="fWidth height20"></div>
+                    <input class="fWidth height60 padH40 borderBox tAlignEnd bgWhite marL15 fSize2 fQuicksand" type="text"
+                        placeholder="Enter your username" ng-model="ctrl.newUsername" />
+                    <div class="fWidth height20"></div>
+                    <input class="fWidth height60 padH40 borderBox tAlignEnd bgWhite marL15 fSize2 fQuicksand" type="password"
+                        placeholder="Enter your passphrase" ng-model="ctrl.newPassword1" />
+                    <div class="fWidth height20"></div>
+                    <input class="fWidth height60 padH40 borderBox tAlignEnd bgWhite marL15 fSize2 fQuicksand" type="password"
+                        placeholder="Re-enter your passphrase" ng-model="ctrl.newPassword2" />
+                    <div class="fWidth height20"></div>
+                    <div class="fWidth height80 padH15 dFlex flexRow">
+                        <div class="flex1 dFlex center bgWhite fSize2 fQuicksand fPurple cPointer" ng-click="ctrl.clearFields()">CLEAR</div>
+                        <input class="flex1 dFlex center bgPurple fSize2 fQuicksand fWhite cPointer" type="submit" value="SIGN UP"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <h1 ng-if="ctrl.currentUser">Hello, {{ctrl.currentUser}}</h1>
     <h2>Current Users:</h2>
     <ul>
