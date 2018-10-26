@@ -1,4 +1,5 @@
 require('dotenv').config();
+const bcrypt = require('bcrypt');
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -18,8 +19,12 @@ app.use(session({
     saveUninitialized: false
 }));
 
+// User Controller
 const userController = require("./controllers/users.js");
 app.use("/users", userController);
+// Sessions Controller
+const sessionController = require("./controllers/sessions.js");
+app.use("/sessions", sessionController);
 
 app.listen(PORT, () => {
   console.log("listening...");
