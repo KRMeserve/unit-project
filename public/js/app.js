@@ -69,11 +69,7 @@ app.controller('MainController', ['$http', function($http){
             method: 'GET',
             url: '/users'
         }).then(response=>{
-            if (response.length === 1) {
-                this.currentUser = response;
-            } else {
-                this.allUsers = response;
-            }
+            this.allUsers = response;
         }, error =>{
             console.log(error);
         })
