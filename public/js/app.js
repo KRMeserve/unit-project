@@ -8,12 +8,21 @@ app.controller("MainController", [
     // -------- Test route --------
     this.hello = "Howdy";
 
+    // ------- Partials Logic -------
+    this.includePath = 'partials/signup.html';
+
+    this.changeIncludePath = (path)=>{
+        this.includePath = 'partials/' + path + '.html';
+    };
+
+    // ------- Clearing Input Field Logic -------
     this.clearFields = ()=>{
         this.newUsername = "";
         this.newPassword1 = "";
         this.newPassword2 = "";
     }
 
+    // ------- Sets Session -------
     this.goApp = () => {
       $http({
         method: "GET",
@@ -40,7 +49,8 @@ app.controller("MainController", [
         }
       }).then(
         response => {
-          console.log(response);
+         this.currentUser = response.data.username;
+         console.log(response);
         },
         error => {
           console.log(error);
