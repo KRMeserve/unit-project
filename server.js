@@ -1,22 +1,25 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 
-const MONGODB_URI = process.env.MONGODB_URL || 'mongodb://localhost/' + 'circuit';
+const MONGODB_URI =
+  process.env.MONGODB_URL || "mongodb://localhost/" + "circuit";
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-const userController = require('./controllers/users.js');
-app.use('/users', userController);
+const userController = require("./controllers/users.js");
+app.use("/users", userController);
 
-
-app.listen(PORT, ()=>{
-    console.log('listening...');
+app.listen(PORT, () => {
+  console.log("listening...");
 });
 
-mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
-mongoose.connection.once('open', ()=>{
-    console.log('connected to mongo');
+mongoose.connect(
+  MONGODB_URI,
+  { useNewUrlParser: true }
+);
+mongoose.connection.once("open", () => {
+  console.log("connected to mongo");
 });

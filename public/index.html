@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app='CircuitApp'>
-    <head>
-        <meta charset="utf-8">
-        <title>Index</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js" charset="utf-8"></script>
-        <script src="/js/app.js"></script>
-    </head>
-    <body ng-controller="MainController as ctrl">
-        <h1>Hello from Index</h1>
-        <h2>Current Users:</h2>
-        <ul>
-            <li ng-repeat="user in ctrl.allUsers.data">{{ user.username }} <span ng-click="ctrl.deleteUser(user)"> X </span> </li>
-        </ul>
-        <h2>Sign Up</h2>
-        <form ng-submit="ctrl.createUser()">
-            Username: <input type="text" ng-model="ctrl.newUsername"><br>
-            Password: <input type="password" ng-model="ctrl.newPassword"><br>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js"></script>
+</head>
+
+<body ng-controller="MainController as ctrl">
+    <h1>Hello from Index</h1>
+    <h2>Looking for merge conflict</h2>
+    <h2>Current Users - Ashwanth:</h2>
+    <ul>
+        <li ng-repeat="user in ctrl.allUsers.data">{{ user.username }} <span ng-click="ctrl.deleteUser(user)"> X </span>
+        </li>
+    </ul>
+    <h2>Sign Up</h2>
+    <form ng-submit="ctrl.createUser()">
+        Username: <input type="text" ng-model="ctrl.newUsername"><br>
+        Password: <input type="password" ng-model="ctrl.newPassword"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
 </html>
