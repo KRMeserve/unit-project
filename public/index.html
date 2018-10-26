@@ -8,25 +8,21 @@
 
 <body ng-controller="MainController as ctrl">
     <h1>Hello from Index</h1>
-    <h2>Testing conflicts</h2>
-    <h2>Looking for merge conflict</h2>
-    <h2>Current Users - Ashwanth:</h2>
-    <h2>Another merge conflict</h2>
-    <h2>Current Users - Kyle:</h2>
+    <h2>Current Users:</h2>
     <ul>
         <li ng-repeat="user in ctrl.allUsers.data">{{ user.username }} <span ng-click="ctrl.deleteUser(user)"> X
             </span>
         </li>
     </ul>
     <h2>Sign Up</h2>
+    <p>if you want to</p>
     <form ng-submit="ctrl.createUser()">
         Username: <input type="text" ng-model="ctrl.newUsername"><br>
         Password: <input type="password" ng-model="ctrl.newPassword"><br>
         <input type="submit" value="Submit">
     </form>
-    <form class="" action="index.html" method="post">
-        <input type="text" name="" value="NOTHING">
-    </form>
+    <p>Click here for some free money.</p>
+    <button type="button" name="button">$$$</button>
 </body>
 
 </html>
