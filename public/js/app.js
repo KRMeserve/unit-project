@@ -18,7 +18,7 @@ app.controller('MainController', ['$http', function($http){
             }
         }).then(response=>{
             console.log(response);
-            this.getUsers();
+            this.getUsers(); 
         }, error=>{
             console.log(error);
         })
