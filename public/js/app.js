@@ -8,6 +8,12 @@ app.controller("MainController", [
     // -------- Test route --------
     this.hello = "Howdy";
 
+    this.clearFields = ()=>{
+        this.newUsername = "";
+        this.newPassword1 = "";
+        this.newPassword2 = "";
+    }
+
     this.goApp = () => {
       $http({
         method: "GET",
@@ -94,23 +100,28 @@ app.controller("MainController", [
 
     // -------- Create User Route --------
     this.createUser = () => {
-      $http({
-        method: "POST",
-        url: "/users",
-        data: {
-          username: this.newUsername,
-          password: this.newPassword
-        }
-      }).then(
-        response => {
-          this.newUsername = "";
-          this.newPassword = "";
-          this.getUsers();
-        },
-        error => {
-          console.log(error);
-        }
-      );
+        if (this.newPassword1 === this.newPassword2) {
+            $http({
+              method: "POST",
+              url: "/users",
+              data: {
+                username: this.newUsername,
+                password: this.newPassword1
+              }
+            }).then(
+              response => {
+                this.newUsername = "";
+                this.newPassword1 = "";
+                this.newPassword2 = "";
+                this.getUsers();
+              },
+              error => {
+                console.log(error);
+              }
+            );
+        } else {
+            console.log('did not work');
+        };
     };
 
     this.getUsers();
