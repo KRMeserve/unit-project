@@ -7,6 +7,23 @@ app.controller('MainController', ['$http', function($http){
     this.hello = 'Howdy';
 
 
+    // ------- Update user route -------
+    this.editUser = (user)=>{
+        $http({
+            method: 'PUT',
+            url: '/users/' + user._id,
+            data: {
+                username: this.updatedUsername,
+                password: this.updatedPassword
+            }
+        }).then(response=>{
+            console.log(response);
+            this.getUsers();
+        }, error=>{
+            console.log(error);
+        })
+    };
+
     // ------- Delete user route -------
     this.deleteUser = (user)=>{
         $http({
@@ -14,7 +31,6 @@ app.controller('MainController', ['$http', function($http){
             url: '/users/' + user._id
         }).then(response=>{
             this.getUsers();
-            console.log(response);
         }, error=>{
             console.log(error);
         })
@@ -27,7 +43,6 @@ app.controller('MainController', ['$http', function($http){
             url: '/users'
         }).then(response=>{
             this.allUsers = response;
-            console.log(this.allUsers.data);
         }, error =>{
             console.log(error);
         })
