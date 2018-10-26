@@ -6,6 +6,20 @@ app.controller('MainController', ['$http', function($http){
     // -------- Test route --------
     this.hello = 'Howdy';
 
+
+    // ------- Delete user route -------
+    this.deleteUser = (user)=>{
+        $http({
+            method: 'DELETE',
+            url: '/users/' + user._id
+        }).then(response=>{
+            this.getUsers();
+            console.log(response);
+        }, error=>{
+            console.log(error);
+        })
+    };
+
     // -------- Get users route --------
     this.getUsers = ()=>{
         $http({
