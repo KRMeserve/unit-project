@@ -17,5 +17,22 @@ app.controller('MainController', ['$http', function($http){
             console.log(error);
         })
     };
+
+    // -------- Create User Route --------
+    this.createUser = ()=>{
+        $http({
+            method: 'POST',
+            url: '/users',
+            data: {
+                username: 'test',
+                password: 'test'
+            }
+        }).then(response=>{
+            console.log(response);
+        }, error =>{
+            console.log(error);
+        })
+    };
+
     this.getUsers();
 }]);
