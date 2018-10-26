@@ -6,6 +6,33 @@ app.controller('MainController', ['$http', function($http){
     // -------- Test route --------
     this.hello = 'Howdy';
 
+    this.goApp = ()=>{
+        $http({
+            method:'GET',
+            url: '/app'
+        }).then(response=>{
+            this.currentUser = response.data.username;
+            console.log(this.currentUser);
+        }, error=>{
+            console.log(error);
+        })
+    }
+
+    // ------- Sessions Log In Route -------
+    this.logIn = ()=>{
+        $http({
+            method:'POST',
+            url: '/sessions',
+            data: {
+                username: this.username,
+                password: this.password
+            }
+        }).then(response=>{
+            console.log(response);
+        }, error=>{
+            console.log(error);
+        })
+    };
 
     // ------- Update user route -------
     this.editUser = (user)=>{
@@ -18,7 +45,7 @@ app.controller('MainController', ['$http', function($http){
             }
         }).then(response=>{
             console.log(response);
-            this.getUsers(); 
+            this.getUsers();
         }, error=>{
             console.log(error);
         })
