@@ -7,7 +7,7 @@
 </head>
 
 <body ng-controller="MainController as ctrl">
-    <h1>Hello from Index</h1>
+    <h1 ng-if="ctrl.currentUser">Hello, {{ctrl.currentUser}}</h1>
     <h2>Current Users:</h2>
     <ul>
         <li ng-repeat="user in ctrl.allUsers.data">{{ user.username }} <span ng-click="ctrl.deleteUser(user)"> X
@@ -20,6 +20,14 @@
         Password: <input type="password" ng-model="ctrl.newPassword"><br>
         <input type="submit" value="Submit">
     </form>
+    <h2>Log In</h2>
+    <form ng-submit="ctrl.logIn()">
+        Username: <input type="text" ng-model="ctrl.username"><br>
+        Password: <input type="password" ng-model="ctrl.password"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Go To Your Portfolio</h2>
+    <a href="#" ng-click="ctrl.goApp()">Click Here</a>
 </body>
 
 </html>
