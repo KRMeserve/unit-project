@@ -8,7 +8,8 @@
     </head>
     <body ng-controller="MainController as ctrl">
         <h1>Hello from Index</h1>
-        <h2>Current Users:</h2>
+        <h2>Another merge conflict</h2>
+        <h2>Current Users - Kyle:</h2>
         <ul>
             <li ng-repeat="user in ctrl.allUsers.data">{{ user.username }} <span ng-click="ctrl.deleteUser(user)"> X </span> </li>
         </ul>
