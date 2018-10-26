@@ -26,6 +26,14 @@ app.use("/users", userController);
 const sessionController = require("./controllers/sessions.js");
 app.use("/sessions", sessionController);
 
+app.get('/app', (req, res)=>{
+    if (req.session.currentUser){
+        res.json(req.session.currentUser);
+    } else {
+        console.log('Not Logged In');
+    }
+})
+
 app.listen(PORT, () => {
   console.log("listening...");
 });

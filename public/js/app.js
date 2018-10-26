@@ -6,10 +6,22 @@ app.controller('MainController', ['$http', function($http){
     // -------- Test route --------
     this.hello = 'Howdy';
 
+    this.goApp = ()=>{
+        $http({
+            method:'GET',
+            url: '/app'
+        }).then(response=>{
+            this.currentUser = response.data.username;
+            console.log(this.currentUser);
+        }, error=>{
+            console.log(error);
+        })
+    }
+
     // ------- Sessions Log In Route -------
     this.logIn = ()=>{
         $http({
-            method:'GET',
+            method:'POST',
             url: '/sessions',
             data: {
                 username: this.username,
@@ -57,7 +69,11 @@ app.controller('MainController', ['$http', function($http){
             method: 'GET',
             url: '/users'
         }).then(response=>{
-            this.allUsers = response;
+            if (response.length === 1) {
+                this.currentUser = response;
+            } else {
+                this.allUsers = response;
+            }
         }, error =>{
             console.log(error);
         })
