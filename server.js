@@ -8,8 +8,8 @@ const MONGODB_URI = process.env.MONGODB_URL || 'mongodb://localhost/' + 'circuit
 app.use(express.json());
 app.use(express.static('public'));
 
-const circuitController = require('./controllers/circuit.js');
-app.use('/circuit', circuitController);
+const userController = require('./controllers/users.js');
+app.use('/users', userController);
 
 
 app.listen(PORT, ()=>{
