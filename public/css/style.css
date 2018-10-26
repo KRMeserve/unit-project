@@ -146,3 +146,7 @@
 .cPointer {
   cursor: pointer;
 }
+.hoverGreen:hover {
+  background-color: #09B247;
+  color: #333;
+}
