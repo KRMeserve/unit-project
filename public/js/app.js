@@ -12,7 +12,8 @@ app.controller('MainController', ['$http', function($http){
             method: 'GET',
             url: '/users'
         }).then(response=>{
-            console.log(response);
+            this.allUsers = response;
+            console.log(this.allUsers.data);
         }, error =>{
             console.log(error);
         })
@@ -24,11 +25,13 @@ app.controller('MainController', ['$http', function($http){
             method: 'POST',
             url: '/users',
             data: {
-                username: 'test',
-                password: 'test'
+                username: this.newUsername,
+                password: this.newPassword
             }
         }).then(response=>{
-            console.log(response);
+            this.newUsername = '';
+            this.newPassword = '';
+            this.getUsers();
         }, error =>{
             console.log(error);
         })
