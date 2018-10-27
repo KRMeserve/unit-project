@@ -1,0 +1,24 @@
+<form ng-submit="ctrl.createUser()" class="fWidth dFlex center">
+    <div class="widthP80 dFlex flexColumn">
+        <div class="fWidth height60 border15Purple dFlex flexRow">
+            <div class="flex1 dFlex center bgWhite fSize2 fAclonica fPurple" ng-click="ctrl.changeIncludePath('signup')">SIGN
+                UP</div>
+            <div class="flex1 dFlex center bgPurple fSize2 fAclonica fWhite border3White cPointer hoverGreen" ng-click="ctrl.changeIncludePath('login')">SIGN
+                IN</div>
+        </div>
+        <div class="fWidth height20"></div>
+        <input class="fWidth height60 padH40 borderBox tAlignEnd bgWhite marL15 fSize2 fQuicksand" type="text"
+            placeholder="Enter your username" ng-model="ctrl.newUsername" />
+        <div class="fWidth height20"></div>
+        <input class="fWidth height60 padH40 borderBox tAlignEnd bgWhite marL15 fSize2 fQuicksand" type="password"
+            placeholder="Enter your passphrase" ng-model="ctrl.newPassword1" />
+        <div class="fWidth height20"></div>
+        <input class="fWidth height60 padH40 borderBox tAlignEnd bgWhite marL15 fSize2 fQuicksand" type="password"
+            placeholder="Re-enter your passphrase" ng-model="ctrl.newPassword2" />
+        <div class="fWidth height20"></div>
+        <div class="fWidth height80 padH15 dFlex flexRow">
+            <div class="flex1 dFlex center bgWhite fSize2 fQuicksand fPurple cPointer hoverGreen" ng-click="ctrl.clearFields()">CLEAR</div>
+            <input class="flex1 dFlex center bgPurple fSize2 fQuicksand fWhite cPointer hoverGreen" type="submit" value="SIGN UP" />
+        </div>
+    </div>
+</form>

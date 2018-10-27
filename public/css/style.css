@@ -1,0 +1,154 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*====== IMPORT FONTS ======*/
+@import url("https://fonts.googleapis.com/css?family=Aclonica");
+
+/*====== WIDTH ======*/
+.sWidth {
+  width: 100vw;
+}
+.fWidth {
+  width: 100%;
+}
+.widthP80 {
+  width: 80%;
+}
+
+/*====== HEIGHT ======*/
+.sHeight {
+  height: 100vh;
+}
+.fHeight {
+  height: 100%;
+}
+.height20 {
+  height: 20px;
+}
+.height40 {
+  height: 40px;
+}
+.height60 {
+  height: 60px;
+}
+.height80 {
+  height: 80px;
+}
+.height90 {
+  height: 90px;
+}
+
+/*====== PADDING ======*/
+.padH40 {
+  padding: 0px 40px;
+}
+.padH20 {
+  padding: 0px 20px;
+}
+.padH15 {
+  padding: 0px 15px;
+}
+
+/*====== MARGIN ======*/
+.marL15 {
+  margin-left: 15px;
+}
+
+/*====== BORDER & BORDER BOX ======*/
+.borderBox {
+  box-sizing: border-box;
+}
+.border15Purple {
+  border: #9013fe solid 15px;
+}
+.border3White {
+  border: #fff solid 3px;
+}
+
+/*====== BACKGROUND COLOR ======*/
+/* SOLID COLORS */
+.bgPurple {
+  background-color: #9013fe;
+}
+.bgWhite {
+  background-color: #fff;
+}
+/* TRANSLUCENT COLORS */
+.bgPurple30 {
+  background-color: #9013fe4d;
+}
+.bgWhite75 {
+  background-color: #ffffffbf;
+}
+
+/*====== ABSOLUTE POSITIONING ======*/
+.absolute {
+  position: absolute;
+}
+
+/*====== FLEX LAYOUTS ======*/
+.dFlex {
+  display: flex;
+}
+.flexRow {
+  flex-direction: row;
+}
+.flexColumn {
+  flex-direction: column;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.justifyEnd {
+  justify-content: flex-end;
+}
+.alignCenter {
+  align-items: center;
+}
+/*====== FLEX VALUES ======*/
+.flex1 {
+  flex: 1;
+}
+
+/*====== FONT FAMILY ======*/
+.fAclonica {
+  font-family: "Aclonica", sans-serif;
+}
+.fQuicksand {
+  font-family: "Quicksand", sans-serif;
+}
+
+/*====== FONT SIZES ======*/
+.fSize6 {
+  font-size: 6rem;
+}
+.fSize2 {
+  font-size: 2rem;
+}
+
+/*====== FONT COLORS ======*/
+.fWhite {
+  color: #fff;
+}
+.fPurple {
+  color: #9013fe;
+}
+
+/*====== FONT ALIGNMENT ======*/
+.tAlignEnd {
+  text-align: end;
+}
+
+/*====== HOVER CLASSES ======*/
+.cPointer {
+  cursor: pointer;
+}
+.hoverGreen:hover {
+  background-color: #09b247;
+  color: #333;
+}
+
+/*====== TRANSITION CLASSES ======*/
