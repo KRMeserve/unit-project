@@ -127,8 +127,8 @@ app.controller("MainController", [
           method: "POST",
           url: "/users",
           data: {
-            username: this.newUsername,
-            password: this.newPassword1
+            username: controller.newUsername,
+            password: controller.newPassword1
           }
         }).then(
           function(response){
