@@ -75,6 +75,12 @@
 .bgWhite {
   background-color: #fff;
 }
+.bgGray {
+  background-color: #d8d8d8;
+}
+.bgDarkGray {
+  background-color: #585858;
+}
 /* TRANSLUCENT COLORS */
 .bgPurple30 {
   background-color: #9013fe4d;
