@@ -13,6 +13,9 @@
 .fWidth {
   width: 100%;
 }
+.widthP90 {
+  width: 90%;
+}
 .widthP80 {
   width: 80%;
 }
@@ -32,16 +35,30 @@
 .width40 {
   width: 40px;
 }
+.width50 {
+  width: 50px;
+}
 .width60 {
   width: 60px;
 }
-
+.width80 {
+  width: 80px;
+}
+.width120 {
+  width: 120px;
+}
+.width150 {
+  width: 150px;
+}
 /*====== HEIGHT ======*/
 .sHeight {
   height: 100vh;
 }
 .fHeight {
   height: 100%;
+}
+.height10 {
+  height: 10px;
 }
 .height20 {
   height: 20px;
@@ -182,6 +199,9 @@
 /*====== FONT SIZES ======*/
 .fSize6 {
   font-size: 6rem;
+}
+.fSize3 {
+  font-size: 3rem;
 }
 .fSize2 {
   font-size: 2rem;
