@@ -147,6 +147,8 @@
   cursor: pointer;
 }
 .hoverGreen:hover {
-  background-color: #09B247;
+  background-color: #09b247;
   color: #333;
 }
+
+/*====== TRANSITION CLASSES ======*/

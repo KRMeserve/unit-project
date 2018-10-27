@@ -9,18 +9,24 @@ app.controller("MainController", [
     this.hello = "Howdy";
 
     // ------- Partials Logic -------
-    this.includePath = 'partials/signup.html';
+    this.includePath = "partials/signup.html";
 
-    this.changeIncludePath = (path)=>{
-        this.includePath = 'partials/' + path + '.html';
+    this.pagePath = "partials/getStarted.html";
+
+    this.changeIncludePath = path => {
+      this.includePath = "partials/" + path + ".html";
+    };
+
+    this.changePagePath = path => {
+      this.pagePath = `partials/${path}.html`;
     };
 
     // ------- Clearing Input Field Logic -------
-    this.clearFields = ()=>{
-        this.newUsername = "";
-        this.newPassword1 = "";
-        this.newPassword2 = "";
-    }
+    this.clearFields = () => {
+      this.newUsername = "";
+      this.newPassword1 = "";
+      this.newPassword2 = "";
+    };
 
     // ------- Sets Session -------
     this.goApp = () => {
@@ -49,8 +55,9 @@ app.controller("MainController", [
         }
       }).then(
         response => {
-         this.currentUser = response.data.username;
-         console.log(response);
+          this.currentUser = response.data.username;
+          this.changePagePath("dashboard");
+          console.log(response);
         },
         error => {
           console.log(error);
@@ -110,28 +117,28 @@ app.controller("MainController", [
 
     // -------- Create User Route --------
     this.createUser = () => {
-        if (this.newPassword1 === this.newPassword2) {
-            $http({
-              method: "POST",
-              url: "/users",
-              data: {
-                username: this.newUsername,
-                password: this.newPassword1
-              }
-            }).then(
-              response => {
-                this.newUsername = "";
-                this.newPassword1 = "";
-                this.newPassword2 = "";
-                this.getUsers();
-              },
-              error => {
-                console.log(error);
-              }
-            );
-        } else {
-            console.log('did not work');
-        };
+      if (this.newPassword1 === this.newPassword2) {
+        $http({
+          method: "POST",
+          url: "/users",
+          data: {
+            username: this.newUsername,
+            password: this.newPassword1
+          }
+        }).then(
+          response => {
+            this.newUsername = "";
+            this.newPassword1 = "";
+            this.newPassword2 = "";
+            this.getUsers();
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      } else {
+        console.log("did not work");
+      }
     };
 
     this.getUsers();
