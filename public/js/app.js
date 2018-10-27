@@ -8,6 +8,8 @@ app.controller("MainController", [
     // -------- Test route --------
     this.hello = "Howdy";
 
+    const controller = this;
+
     // ------- Partials Logic -------
     this.includePath = "partials/signup.html";
 
@@ -119,7 +121,8 @@ app.controller("MainController", [
     this.createUser = () => {
         console.log('Entering Create User');
       if (this.newPassword1 === this.newPassword2) {
-          console.log('Passwords Match');
+          console.log(this.newPassword1);
+          console.log(this.newPassword2);
         $http({
           method: "POST",
           url: "/users",
