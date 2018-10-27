@@ -1,6 +1,11 @@
 // -------- REQUIRED CONSTANTS FOR CIRCUIT ENTIRE APP --------
 const app = angular.module("CircuitApp", []);
 
+// ------- DASHBOARD CONTROLLER -------
+app.controller("DashboardController", ["$http", function($http){
+    this.hi = 'working';
+}]);
+
 // -------- MAIN CONTROLLER --------
 app.controller("MainController", [
   "$http",
@@ -57,13 +62,28 @@ app.controller("MainController", [
         response => {
           this.currentUser = response.data.username;
           this.changePagePath("dashboard");
-          console.log(response);
+          // console.log(response);
         },
         error => {
           console.log(error);
         }
       );
     };
+
+    // ------- Session Log Out Route -------
+    this.logOut = ()=>{
+        $http({
+          method: "GET",
+          url: "/sessions/destroy"
+        }).then(
+          response => {
+            this.changePagePath("getStarted");
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      };
 
     // ------- Update user route -------
     this.editUser = user => {
