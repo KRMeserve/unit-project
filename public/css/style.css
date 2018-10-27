@@ -16,6 +16,9 @@
 .widthP80 {
   width: 80%;
 }
+.widthP15 {
+    width: 15%;
+}
 
 /*====== HEIGHT ======*/
 .sHeight {
@@ -39,6 +42,9 @@
 .height90 {
   height: 90px;
 }
+.height250 {
+    height: 250px;
+}
 
 /*====== PADDING ======*/
 .padH40 {
@@ -50,21 +56,33 @@
 .padH15 {
   padding: 0px 15px;
 }
+.pad50 {
+    padding: 50px;
+}
 
 /*====== MARGIN ======*/
 .marL15 {
   margin-left: 15px;
+}
+.marP5 {
+    margin: 5%;
 }
 
 /*====== BORDER & BORDER BOX ======*/
 .borderBox {
   box-sizing: border-box;
 }
+.border2DarkGrey {
+    border: #585858 solid 2px;
+}
 .border15Purple {
   border: #9013fe solid 15px;
 }
 .border3White {
   border: #fff solid 3px;
+}
+.borderRadius200 {
+    border-radius: 200px;
 }
 
 /*====== BACKGROUND COLOR ======*/
