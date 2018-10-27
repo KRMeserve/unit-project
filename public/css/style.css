@@ -16,6 +16,21 @@
 .widthP80 {
   width: 80%;
 }
+.width10 {
+  width: 10px;
+}
+.width20 {
+  width: 20px;
+}
+.width30 {
+  width: 30px;
+}
+.width40 {
+  width: 40px;
+}
+.width60 {
+  width: 60px;
+}
 
 /*====== HEIGHT ======*/
 .sHeight {
@@ -26,6 +41,12 @@
 }
 .height20 {
   height: 20px;
+}
+.height25 {
+  height: 25px;
+}
+.height30 {
+  height: 30px;
 }
 .height40 {
   height: 40px;
@@ -50,6 +71,9 @@
 .padH15 {
   padding: 0px 15px;
 }
+.padHP5 {
+  padding: 0px 5%;
+}
 
 /*====== MARGIN ======*/
 .marL15 {
@@ -66,7 +90,12 @@
 .border3White {
   border: #fff solid 3px;
 }
-
+.bRad20 {
+  border-radius: 20px;
+}
+.bRad30 {
+  border-radius: 30px;
+}
 /*====== BACKGROUND COLOR ======*/
 /* SOLID COLORS */
 .bgPurple {
@@ -111,6 +140,9 @@
 .justifyEnd {
   justify-content: flex-end;
 }
+.justifyBetween {
+  justify-content: space-between;
+}
 .alignCenter {
   align-items: center;
 }
@@ -134,7 +166,9 @@
 .fSize2 {
   font-size: 2rem;
 }
-
+.fSize12 {
+  font-size: 1.2rem;
+}
 /*====== FONT COLORS ======*/
 .fWhite {
   color: #fff;
