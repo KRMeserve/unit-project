@@ -117,7 +117,9 @@ app.controller("MainController", [
 
     // -------- Create User Route --------
     this.createUser = () => {
+        console.log('Entering Create User');
       if (this.newPassword1 === this.newPassword2) {
+          console.log('Passwords Match');
         $http({
           method: "POST",
           url: "/users",
