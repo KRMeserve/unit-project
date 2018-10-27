@@ -121,8 +121,8 @@ app.controller("MainController", [
     this.createUser = () => {
         console.log('Entering Create User');
       if (this.newPassword1 === this.newPassword2) {
-          console.log(this.newPassword1);
-          console.log(this.newPassword2);
+          console.log(this.newPassword1, 'password 1');
+          console.log(this.newPassword2, 'password 2');
         $http({
           method: "POST",
           url: "/users",
@@ -131,11 +131,12 @@ app.controller("MainController", [
             password: this.newPassword1
           }
         }).then(
-          response => {
-            this.newUsername = "";
-            this.newPassword1 = "";
-            this.newPassword2 = "";
-            this.getUsers();
+          function(response){
+              console.log('getting response');
+            controller.newUsername = "";
+            controller.newPassword1 = "";
+            controller.newPassword2 = "";
+            controller.getUsers();
           },
           error => {
             console.log(error);
