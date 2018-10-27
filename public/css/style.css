@@ -84,6 +84,9 @@
 .height250 {
   height: 250px;
 }
+.heightP15 {
+    height: 15%;
+}
 
 /*====== PADDING ======*/
 .padH40 {
@@ -106,8 +109,11 @@
 .marL15 {
   margin-left: 15px;
 }
-.marP5 {
-  margin: 5%;
+.marLP5 {
+  margin-left: 5%;
+}
+.marT60 {
+    margin-top: 60px;
 }
 
 /*====== BORDER & BORDER BOX ======*/
@@ -160,6 +166,12 @@
   position: absolute;
 }
 
+/*====== DISPLAY INLINE ======*/
+
+.dInline {
+    display: inline;
+}
+
 /*====== FLEX LAYOUTS ======*/
 .dFlex {
   display: flex;
@@ -176,6 +188,9 @@
 }
 .justifyEnd {
   justify-content: flex-end;
+}
+.justifyAround {
+    justify-content: space-around;
 }
 .justifyBetween {
   justify-content: space-between;
