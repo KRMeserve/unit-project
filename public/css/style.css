@@ -5,6 +5,7 @@
 
 /*====== IMPORT FONTS ======*/
 @import url("https://fonts.googleapis.com/css?family=Aclonica");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
 
 /*====== WIDTH ======*/
 .sWidth {
@@ -202,7 +203,9 @@
 .flex1 {
   flex: 1;
 }
-
+.flex2 {
+  flex: 2;
+}
 /*====== FONT FAMILY ======*/
 .fAclonica {
   font-family: "Aclonica", sans-serif;
@@ -223,6 +226,11 @@
 }
 .fSize12 {
   font-size: 1.2rem;
+}
+
+/*====== FONT WEIGHT ======*/
+.fWeight300 {
+  font-weight: 300;
 }
 /*====== FONT COLORS ======*/
 .fWhite {
