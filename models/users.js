@@ -14,7 +14,7 @@ const userSchema = Schema({
     name: String,
     proficiency: String,
     skills: [String],
-    interest: [String],
+    interests: [String],
     location: String
 });
 

@@ -34,6 +34,10 @@
         <div class="flex1 fWeight300">Interests:</div>
         <div class="flex2 hoverGreen cPointer">CLICK TO ADD INTERESTS</div>
     </div>
+    <form ng-submit="dash.addInterest(ctrl.currentUser)">
+        <input type="text" value="Add an Interest" ng-model="dash.interest">
+        <input type="submit" value="SUBMIT">
+    </form>
     <div class="height40"></div>
     <div class="dFlex flexRow">
         <div class="flex1 fWeight300">Location:</div>

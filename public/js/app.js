@@ -65,6 +65,32 @@ app.controller("DashboardController", ["$http", function($http){
             }
           );
         };
+
+    this.addInterest = (currentUser)=>{
+        const interests = [];
+        console.log(currentUser.interests);
+        for (let i = 0; i < currentUser.interests.length; i++) {
+            interests.push(currentUser.interests[i]);
+        };
+        console.log(interests, 'interests');
+        const updatedInterests = interests.push(this.interest);
+        console.log(updatedInterests, 'updatedInterests');
+        console.log(interests, 'interests');
+        $http({
+            method: "PUT",
+            url: "/users/" + currentUser._id,
+            data: {
+              interests: interests
+            }
+          }).then(
+            response => {
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        };
 }]);
 
 // -------- MAIN CONTROLLER --------
