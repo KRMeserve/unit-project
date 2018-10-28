@@ -1,0 +1,73 @@
+<div class="fWidth bgWhite padHP5 borderBox dFlex flexColumn fSize2 fQuicksand">
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Name:</div>
+        <div ng-if="!ctrl.nameEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleNameEdit()">{{ctrl.name}}</div>
+        <input ng-if="ctrl.nameEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2" ng-click="ctrl.toggleNameEdit()"
+            value="" id="nameEditField" ng-model="ctrl.name" />
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Proficiency:</div>
+        <div ng-if="!ctrl.proficiencyEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleProficiencyEdit()">{{ctrl.proficiency}}</div>
+        <input ng-if="ctrl.proficiencyEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2"
+            ng-click="ctrl.toggleProficiencyEdit()" value="" id="proficiencyEditField" ng-model="ctrl.proficiency" />
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Skills:</div>
+        <div class="flex2 bgGreen cPointer pad10 tAlignCenter" ng-click="ctrl.toggleAddSkillField()">CLICK TO ADD
+            SKILLS</div>
+    </div>
+    <div class="height20"></div>
+    <div class="dFlex flexRow" ng-if="ctrl.addSkillField">
+        <div class="flex1"></div>
+        <div class="flex2 dFlex flexRow">
+            <input type="text" class="flex1 pad10 fQuicksand fSize2" placeholder="ENTER SKILL HERE" ng-model="ctrl.skill" />
+            <div class="width250 dFlex center fQuicksand fSize2 bgGreen cPointer" ng-click="ctrl.addSkill()">ADD
+                SKILL</div>
+        </div>
+    </div>
+    <div class="height20"></div>
+    <div class="dFlex flexRow">
+        <div class="flex1"></div>
+        <div class="flex2 flexColumn">
+            <div ng-repeat="skill in ctrl.skills">
+                <div class="fQuicksand fSize2">{{skill}}</div>
+                <div class="height20"></div>
+            </div>
+        </div>
+    </div>
+    <div class="height20"></div>
+    <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Interests:</div>
+        <div class="flex2 bgGreen cPointer pad10 tAlignCenter" ng-click="ctrl.toggleAddInterestField()">CLICK TO ADD
+            INTERESTS</div>
+    </div>
+    <div class="height20"></div>
+    <div class="dFlex flexRow" ng-if="ctrl.addInterestField">
+        <div class="flex1"></div>
+        <div class="flex2 dFlex flexRow">
+            <input type="text" class="flex1 pad10 fQuicksand fSize2" placeholder="ENTER INTEREST HERE" ng-model="ctrl.interest" />
+            <div class="width250 dFlex center fQuicksand fSize2 bgGreen cPointer" ng-click="ctrl.addInterest()">ADD
+                INTEREST</div>
+        </div>
+    </div>
+    <div class="height20"></div>
+    <div class="dFlex flexRow">
+        <div class="flex1"></div>
+        <div class="flex2 flexColumn">
+            <div ng-repeat="interest in ctrl.interests">
+                <div class="fQuicksand fSize2">{{interest}}</div>
+                <div class="height20"></div>
+            </div>
+        </div>
+    </div>
+    <div class="height20"></div>
+    <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Location:</div>
+        <div class="flex2 bgGreen cPointer pad10 tAlignCenter">CLICK TO SET LOCATION</div>
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow"></div>
+</div>

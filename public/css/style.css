@@ -5,6 +5,7 @@
 
 /*====== IMPORT FONTS ======*/
 @import url("https://fonts.googleapis.com/css?family=Aclonica");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
 
 /*====== WIDTH ======*/
 .sWidth {
@@ -13,10 +14,58 @@
 .fWidth {
   width: 100%;
 }
+.widthP90 {
+  width: 90%;
+}
 .widthP80 {
   width: 80%;
 }
+.widthP15 {
+  width: 15%;
+}
 
+.width10 {
+  width: 10px;
+}
+.width20 {
+  width: 20px;
+}
+.width30 {
+  width: 30px;
+}
+.width40 {
+  width: 40px;
+}
+.width50 {
+  width: 50px;
+}
+.width60 {
+  width: 60px;
+}
+.width80 {
+  width: 80px;
+}
+.width100 {
+  width: 100px;
+}
+.width120 {
+  width: 120px;
+}
+.width150 {
+  width: 150px;
+}
+.width160 {
+  width: 160px;
+}
+.width200 {
+  width: 200px;
+}
+.width220 {
+  width: 220px;
+}
+.width250 {
+  width: 250px;
+}
 /*====== HEIGHT ======*/
 .sHeight {
   height: 100vh;
@@ -24,8 +73,20 @@
 .fHeight {
   height: 100%;
 }
+.height5 {
+  height: 5px;
+}
+.height10 {
+  height: 10px;
+}
 .height20 {
   height: 20px;
+}
+.height25 {
+  height: 25px;
+}
+.height30 {
+  height: 30px;
 }
 .height40 {
   height: 40px;
@@ -39,6 +100,32 @@
 .height90 {
   height: 90px;
 }
+.height150 {
+  height: 150px;
+}
+.height160 {
+  height: 160px;
+}
+.height200 {
+  height: 200px;
+}
+.height220 {
+  height: 220px;
+}
+.height250 {
+  height: 250px;
+}
+.height300 {
+  height: 300px;
+}
+.heightP15 {
+  height: 15%;
+}
+
+/*====== OBJECT FIT ======*/
+.fitCover {
+  object-fit: cover;
+}
 
 /*====== PADDING ======*/
 .padH40 {
@@ -50,21 +137,73 @@
 .padH15 {
   padding: 0px 15px;
 }
+.padHP5 {
+  padding: 0px 5%;
+}
+.padV10 {
+  padding: 10px 0px;
+}
+.pad50 {
+  padding: 50px;
+}
+.pad10 {
+  padding: 10px;
+}
+.padT20 {
+  padding-top: 20px;
+}
 
 /*====== MARGIN ======*/
 .marL15 {
   margin-left: 15px;
 }
+.marLP5 {
+  margin-left: 5%;
+}
+.marT60 {
+  margin-top: 60px;
+}
 
 /*====== BORDER & BORDER BOX ======*/
+.borderTandB {
+  border-top: 4px solid #585858;
+  border-bottom: 4px solid #585858;
+}
 .borderBox {
   box-sizing: border-box;
+}
+.border2DarkGrey {
+  border: #585858 solid 2px;
 }
 .border15Purple {
   border: #9013fe solid 15px;
 }
 .border3White {
   border: #fff solid 3px;
+}
+.bRad10 {
+  border-radius: 10px;
+}
+.bRad20 {
+  border-radius: 20px;
+}
+.bRad30 {
+  border-radius: 30px;
+}
+.bRad75 {
+  border-radius: 75px;
+}
+.bRad80 {
+  border-radius: 80px;
+}
+.bRad100 {
+  border-radius: 100px;
+}
+.bRad110 {
+  border-radius: 110px;
+}
+.bRad200 {
+  border-radius: 200px;
 }
 
 /*====== BACKGROUND COLOR ======*/
@@ -75,9 +214,24 @@
 .bgWhite {
   background-color: #fff;
 }
+.bgGray {
+  background-color: #d8d8d8;
+}
+.bgDarkGray {
+  background-color: #585858;
+}
+.bgLightPurple {
+  background-color: #e9d0ff;
+}
+.bgGreen {
+  background-color: #09b247;
+}
 /* TRANSLUCENT COLORS */
 .bgPurple30 {
   background-color: #9013fe4d;
+}
+.bgPurple65 {
+  background-color: #9013fea6;
 }
 .bgWhite75 {
   background-color: #ffffffbf;
@@ -86,6 +240,12 @@
 /*====== ABSOLUTE POSITIONING ======*/
 .absolute {
   position: absolute;
+}
+
+/*====== DISPLAY INLINE ======*/
+
+.dInline {
+  display: inline;
 }
 
 /*====== FLEX LAYOUTS ======*/
@@ -105,6 +265,12 @@
 .justifyEnd {
   justify-content: flex-end;
 }
+.justifyAround {
+  justify-content: space-around;
+}
+.justifyBetween {
+  justify-content: space-between;
+}
 .alignCenter {
   align-items: center;
 }
@@ -112,7 +278,9 @@
 .flex1 {
   flex: 1;
 }
-
+.flex2 {
+  flex: 2;
+}
 /*====== FONT FAMILY ======*/
 .fAclonica {
   font-family: "Aclonica", sans-serif;
@@ -125,10 +293,23 @@
 .fSize6 {
   font-size: 6rem;
 }
+.fSize3 {
+  font-size: 3rem;
+}
 .fSize2 {
   font-size: 2rem;
 }
+.fSize12 {
+  font-size: 1.2rem;
+}
 
+/*====== FONT WEIGHT ======*/
+.fWeight300 {
+  font-weight: 300;
+}
+.fWeight500 {
+  font-weight: 500;
+}
 /*====== FONT COLORS ======*/
 .fWhite {
   color: #fff;
@@ -136,10 +317,25 @@
 .fPurple {
   color: #9013fe;
 }
+.fGray {
+  color: #d8d8d8;
+}
+.fDarkGray {
+  color: #585858;
+}
+.fBlack {
+  color: #333;
+}
+.fGreen {
+  color: #09b247;
+}
 
 /*====== FONT ALIGNMENT ======*/
 .tAlignEnd {
   text-align: end;
+}
+.tAlignCenter {
+  text-align: center;
 }
 
 /*====== HOVER CLASSES ======*/
