@@ -6,7 +6,10 @@
         <div class="width60 height60 bRad30">
             <img ng-src="../img/profile_image.jpg" alt="" class="width60 height60 bRad30" />
         </div>
-        <div class="fHeight width20"></div>
-        <img ng-src="../img/show-options.png" alt="" class="width30 height20" />
+        <div class="fHeight width20" ></div>
+        <img id="show-options-image" ng-src="../img/show-options.png" alt="" class="width30 height20" ng-click="ctrl.logOutHidden()"/>
     </div>
+</div>
+<div id="hiddenLogOutBox" class="hiddenBox dFlex justifyEnd">
+    <div class="pad10 width100 dFlex center hoverGreen cPointer fWeight500 bRad10 bgPurple fWhite fQuicksand" ng-click="ctrl.logOut()">LOG OUT</div>
 </div>
