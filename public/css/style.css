@@ -105,6 +105,9 @@
 .pad50 {
   padding: 50px;
 }
+.padT20 {
+    padding-top: 20px;
+}
 
 /*====== MARGIN ======*/
 .marL15 {
@@ -118,6 +121,10 @@
 }
 
 /*====== BORDER & BORDER BOX ======*/
+.borderTandB {
+    border-top: 4px solid #585858;
+    border-bottom: 4px solid #585858;
+}
 .borderBox {
   box-sizing: border-box;
 }
@@ -239,10 +246,19 @@
 .fPurple {
   color: #9013fe;
 }
+.fGray {
+    color: #d8d8d8;
+}
+.fDarkGray {
+    color: #585858;
+}
 
 /*====== FONT ALIGNMENT ======*/
 .tAlignEnd {
   text-align: end;
+}
+.tAlignCenter {
+    text-align: center;
 }
 
 /*====== HOVER CLASSES ======*/
