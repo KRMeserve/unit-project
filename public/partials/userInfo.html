@@ -7,7 +7,7 @@
         <div class="width40"></div>
         <div class="flex1 dFlex flexColumn">
             <div class="dFlex flexRow justifyBetween">
-                <div class="fAclonica fSize3 fBlack">Ashwanth A R</div>
+                <div class="fAclonica fSize3 fBlack">{{ctrl.currentUser.name}}</div>
                 <div class="dFlex flexRow alignCenter">
                     <div class="pad10 width100 dFlex center hoverGreen cPointer fWeight500 bRad10 bgWhite fPurple fQuicksand">FOLLOW</div>
                     <div class="width50"></div>
@@ -15,21 +15,21 @@
                 </div>
             </div>
             <div class="height20"></div>
-            <div class="fQuicksand fSize12 fWeight300">A business minded engineer with the ethos of a product developer</div>
+            <div class="fQuicksand fSize12 fWeight300">{{ctrl.currentUser.brandStatement}}</div>
             <div class="height20"></div>
             <div class="height5 bgPurple"></div>
             <div class="height20"></div>
             <div class="flexRow dFlex padHP5 justifyBetween">
                 <div class="flexColumn alignCenter width200 fQuicksand">
-                    <div class="fSize2 tAlignCenter fWeight500">236</div>
+                    <div class="fSize2 tAlignCenter fWeight500">{{ctrl.currentUser.followers.length}}</div>
                     <div class="tAlignCenter">FOLLOWERS</div>
                 </div>
                 <div class="flexColumn alignCenter width200 fQuicksand">
-                    <div class="fSize2 tAlignCenter fWeight500">10</div>
+                    <div class="fSize2 tAlignCenter fWeight500">{{ctrl.currentUser.projects}}</div>
                     <div class="tAlignCenter">PROJECTS</div>
                 </div>
                 <div class="flexColumn alignCenter width200 fQuicksand">
-                    <div class="fSize2 tAlignCenter fWeight500">1200</div>
+                    <div class="fSize2 tAlignCenter fWeight500">{{ctrl.currentUser.projects}}</div>
                     <div class="tAlignCenter">CIRCUIT POINTS</div>
                 </div>
             </div>
