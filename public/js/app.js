@@ -15,12 +15,10 @@ app.controller("MainController", [
     // -------- Test route --------
     this.hello = "Howdy";
 
-<<<<<<< HEAD
     const controller = this;
-=======
     this.skills = [];
     this.interests = [];
->>>>>>> 26796ecb53c0eb99591fbf4c1b07e9001e5a8a3b
+
 
     // ------- Partials Logic -------
     this.includePath = "partials/signup.html";
