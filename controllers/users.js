@@ -28,7 +28,9 @@ router.delete('/:id', (req, res)=>{
 
 // -------- UPDATE ROUTE FOR USERS --------
 router.put('/:id', (req, res)=>{
+    console.log(req.body, 'req.body');
     User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedUser)=>{
+        console.log(updatedUser, 'Updated User');
         res.json(updatedUser);
     });
 });

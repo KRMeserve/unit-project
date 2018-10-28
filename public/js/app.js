@@ -4,6 +4,93 @@ const app = angular.module("CircuitApp", []);
 // ------- DASHBOARD CONTROLLER -------
 app.controller("DashboardController", ["$http", function($http){
     this.hi = 'working';
+    this.skills = [];
+
+    this.addName = (currentUser)=>{
+        $http({
+            method: "PUT",
+            url: "/users/" + currentUser._id,
+            data: {
+              name: this.name
+            }
+          }).then(
+            response => {
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        };
+
+    this.addProficiency = (currentUser)=>{
+        $http({
+            method: "PUT",
+            url: "/users/" + currentUser._id,
+            data: {
+              proficiency: this.proficiency
+            }
+          }).then(
+            response => {
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        };
+
+    this.addSkill = (currentUser)=>{
+        const skills = [];
+        console.log(currentUser.skills);
+        for (let i = 0; i < currentUser.skills.length; i++) {
+            skills.push(currentUser.skills[i]);
+        };
+        console.log(skills, 'skills');
+        const updatedSkills = skills.push(this.skill);
+        console.log(updatedSkills, 'updatedSkills');
+        console.log(skills, 'skills');
+        $http({
+            method: "PUT",
+            url: "/users/" + currentUser._id,
+            data: {
+              skills: skills
+            }
+          }).then(
+            response => {
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        };
+
+    this.addInterest = (currentUser)=>{
+        const interests = [];
+        console.log(currentUser.interests);
+        for (let i = 0; i < currentUser.interests.length; i++) {
+            interests.push(currentUser.interests[i]);
+        };
+        console.log(interests, 'interests');
+        const updatedInterests = interests.push(this.interest);
+        console.log(updatedInterests, 'updatedInterests');
+        console.log(interests, 'interests');
+        $http({
+            method: "PUT",
+            url: "/users/" + currentUser._id,
+            data: {
+              interests: interests
+            }
+          }).then(
+            response => {
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        };
 }]);
 
 // -------- MAIN CONTROLLER --------
@@ -33,21 +120,21 @@ app.controller("MainController", [
       this.newPassword2 = "";
     };
 
-    // ------- Sets Session -------
-    this.goApp = () => {
-      $http({
-        method: "GET",
-        url: "/app"
-      }).then(
-        response => {
-          this.currentUser = response.data.username;
-          console.log(this.currentUser);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    };
+    // ------- Sets Session ------- OBSOLETE CODE
+    // this.goApp = () => {
+    //   $http({
+    //     method: "GET",
+    //     url: "/app"
+    //   }).then(
+    //     response => {
+    //       this.currentUser = response.data.username;
+    //       console.log(this.currentUser);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
+    // };
 
     // ------- Sessions Log In Route -------
     this.logIn = () => {
@@ -60,8 +147,9 @@ app.controller("MainController", [
         }
       }).then(
         response => {
-          this.currentUser = response.data.username;
+          this.currentUser = response.data;
           this.changePagePath("dashboard");
+          console.log(this.currentUser);
           // console.log(response);
         },
         error => {

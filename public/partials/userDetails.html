@@ -4,21 +4,40 @@
         <div class="flex1 fWeight300 fPurple">Name:</div>
         <div class="flex2 hoverGreen cPointer pad10">CLICK TO ENTER NAME</div>
     </div>
+    <!-- Add Name Form -->
+    <form ng-submit="dash.addName(ctrl.currentUser)">
+        <input type="text" value="Enter Name" ng-model="dash.name">
+        <input type="submit" value="SUBMIT">
+    </form>
     <div class="height40"></div>
     <div class="dFlex flexRow">
         <div class="flex1 fWeight300 fPurple">Proficiency:</div>
         <div class="flex2 hoverGreen cPointer pad10">CLICK TO ENTER PROFICIENCY</div>
     </div>
+    <!-- Add Proficiency Form -->
+    <form ng-submit="dash.addProficiency(ctrl.currentUser)">
+        <input type="text" value="Enter Proficiency" ng-model="dash.proficiency">
+        <input type="submit" value="SUBMIT">
+    </form>
     <div class="height40"></div>
     <div class="dFlex flexRow">
         <div class="flex1 fWeight300 fPurple">Skills:</div>
         <div class="flex2 hoverGreen cPointer pad10">CLICK TO ADD SKILLS</div>
     </div>
+    <!-- Add Skill Form -->
+    <form ng-submit="dash.addSkill(ctrl.currentUser)">
+        <input type="text" value="Add a Skill" ng-model="dash.skill">
+        <input type="submit" value="SUBMIT">
+    </form>
     <div class="height40"></div>
     <div class="dFlex flexRow">
         <div class="flex1 fWeight300 fPurple">Interests:</div>
         <div class="flex2 hoverGreen cPointer pad10">CLICK TO ADD INTERESTS</div>
     </div>
+    <form ng-submit="dash.addInterest(ctrl.currentUser)">
+        <input type="text" value="Add an Interest" ng-model="dash.interest">
+        <input type="submit" value="SUBMIT">
+    </form>
     <div class="height40"></div>
     <div class="dFlex flexRow">
         <div class="flex1 fWeight300 fPurple">Location:</div>
