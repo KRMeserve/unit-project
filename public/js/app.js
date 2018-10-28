@@ -62,11 +62,17 @@ app.controller("MainController", [
     this.logOutHidden = ()=>{
         this.hideLogOut = !this.hideLogOut;
         if (this.hideLogOut) {
-            $('#show-options-image').addClass('flipped')
+            $('#show-options-image').addClass('flipped');
+            $('#show-options-image').removeClass('flippedReset');
             $('#hiddenLogOutBox').removeClass('hiddenBox');
+            $('#hiddenLogOutBox').addClass('hiddenBoxAnimationAppear')
+            $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationDisappear')
         } else {
             $('#hiddenLogOutBox').addClass('hiddenBox');
+            $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationAppear')
+            $('#hiddenLogOutBox').addClass('hiddenBoxAnimationDisappear')
             $('#show-options-image').removeClass('flipped')
+            $('#show-options-image').addClass('flippedReset')
         }
     }
 
