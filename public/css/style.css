@@ -82,11 +82,17 @@
 .height90 {
   height: 90px;
 }
+.height150 {
+  height: 150px;
+}
 .height250 {
   height: 250px;
 }
+.height300 {
+  height: 300px;
+}
 .heightP15 {
-    height: 15%;
+  height: 15%;
 }
 
 /*====== PADDING ======*/
@@ -106,7 +112,7 @@
   padding: 50px;
 }
 .padT20 {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 /*====== MARGIN ======*/
@@ -117,13 +123,13 @@
   margin-left: 5%;
 }
 .marT60 {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 /*====== BORDER & BORDER BOX ======*/
 .borderTandB {
-    border-top: 4px solid #585858;
-    border-bottom: 4px solid #585858;
+  border-top: 4px solid #585858;
+  border-bottom: 4px solid #585858;
 }
 .borderBox {
   box-sizing: border-box;
@@ -177,7 +183,7 @@
 /*====== DISPLAY INLINE ======*/
 
 .dInline {
-    display: inline;
+  display: inline;
 }
 
 /*====== FLEX LAYOUTS ======*/
@@ -198,7 +204,7 @@
   justify-content: flex-end;
 }
 .justifyAround {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 .justifyBetween {
   justify-content: space-between;
@@ -247,10 +253,10 @@
   color: #9013fe;
 }
 .fGray {
-    color: #d8d8d8;
+  color: #d8d8d8;
 }
 .fDarkGray {
-    color: #585858;
+  color: #585858;
 }
 
 /*====== FONT ALIGNMENT ======*/
@@ -258,7 +264,7 @@
   text-align: end;
 }
 .tAlignCenter {
-    text-align: center;
+  text-align: center;
 }
 
 /*====== HOVER CLASSES ======*/
