@@ -4,6 +4,10 @@
         <div class="flex1 fWeight300">Name:</div>
         <div class="flex2 hoverGreen cPointer">CLICK TO ENTER NAME</div>
     </div>
+    <form ng-submit="dash.addName(ctrl.currentUser)">
+        <input type="text" value="Enter Name" ng-model="dash.name">
+        <input type="submit" value="SUBMIT">
+    </form>
     <div class="height40"></div>
     <div class="dFlex flexRow">
         <div class="flex1 fWeight300">Proficiency:</div>

@@ -4,6 +4,23 @@ const app = angular.module("CircuitApp", []);
 // ------- DASHBOARD CONTROLLER -------
 app.controller("DashboardController", ["$http", function($http){
     this.hi = 'working';
+
+    this.addName = (currentUser)=>{
+        $http({
+            method: "PUT",
+            url: "/users/" + currentUser._id,
+            data: {
+              name: this.name
+            }
+          }).then(
+            response => {
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        };
 }]);
 
 // -------- MAIN CONTROLLER --------
@@ -33,21 +50,21 @@ app.controller("MainController", [
       this.newPassword2 = "";
     };
 
-    // ------- Sets Session -------
-    this.goApp = () => {
-      $http({
-        method: "GET",
-        url: "/app"
-      }).then(
-        response => {
-          this.currentUser = response.data.username;
-          console.log(this.currentUser);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    };
+    // ------- Sets Session ------- OBSOLETE CODE
+    // this.goApp = () => {
+    //   $http({
+    //     method: "GET",
+    //     url: "/app"
+    //   }).then(
+    //     response => {
+    //       this.currentUser = response.data.username;
+    //       console.log(this.currentUser);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
+    // };
 
     // ------- Sessions Log In Route -------
     this.logIn = () => {
@@ -60,8 +77,9 @@ app.controller("MainController", [
         }
       }).then(
         response => {
-          this.currentUser = response.data.username;
+          this.currentUser = response.data;
           this.changePagePath("dashboard");
+          console.log(this.currentUser);
           // console.log(response);
         },
         error => {
