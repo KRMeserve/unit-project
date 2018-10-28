@@ -62,9 +62,11 @@ app.controller("MainController", [
     this.logOutHidden = ()=>{
         this.hideLogOut = !this.hideLogOut;
         if (this.hideLogOut) {
+            $('#show-options-image').addClass('flipped')
             $('#hiddenLogOutBox').removeClass('hiddenBox');
         } else {
             $('#hiddenLogOutBox').addClass('hiddenBox');
+            $('#show-options-image').removeClass('flipped')
         }
     }
 

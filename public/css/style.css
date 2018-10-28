@@ -356,3 +356,6 @@
     margin-right: 15px;
     display: none;
 }
+.flipped {
+    transform: rotate(180deg);
+}
