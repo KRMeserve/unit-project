@@ -17,6 +17,9 @@
 .widthP90 {
   width: 90%;
 }
+.widthP95 {
+  width: 95%;
+}
 .widthP80 {
   width: 80%;
 }
@@ -122,6 +125,11 @@
   height: 15%;
 }
 
+/*====== z-index ======*/
+.zIndex1 {
+    z-index: 1;
+}
+
 /*====== OBJECT FIT ======*/
 .fitCover {
   object-fit: cover;
@@ -177,6 +185,9 @@
 }
 .border15Purple {
   border: #9013fe solid 15px;
+}
+.border15White {
+  border: #fff solid 15px;
 }
 .border3White {
   border: #fff solid 3px;
@@ -235,6 +246,9 @@
 }
 .bgWhite75 {
   background-color: #ffffffbf;
+}
+.bgTransparent {
+    background-color: rgba(255,255,255,0);
 }
 
 /*====== ABSOLUTE POSITIONING ======*/
@@ -349,13 +363,66 @@
 
 /*====== TRANSITION CLASSES ======*/
 .hiddenBox {
+    display: none;
+}
+.hiddenBoxAnimationAppear {
+    animation-name: hiddenBoxAnimationAppear;
+    animation-duration: .4s;
+}
+.hiddenBoxAnimationDisappear {
+    animation-name: hiddenBoxAnimationDisappear;
+    animation-duration: .2s;
+}
+.strangePosition {
+    position: absolute;
+    z-index: 1;
     width: 95%;
     align-self: flex-end;
-    z-index: 1;
     margin-bottom: 15px;
     margin-right: 15px;
-    display: none;
 }
 .flipped {
     transform: rotate(180deg);
+    animation-name: flip;
+    animation-duration: .2s;
+}
+.flippedReset {
+    transform: rotate(0deg);
+    animation-name: flipReset;
+    animation-duration: .2s;
+}
+
+
+/*====== KEYFRAMES  ======*/
+@keyframes flip {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(180deg);}
+}
+@keyframes flipReset {
+    0% {transform: rotate(180deg);}
+    100% {transform: rotate(0deg);}
+}
+@keyframes hiddenBoxAnimationAppear {
+    0% {
+        display: block;
+        opacity: 0;
+        transform:translate(0, -50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes hiddenBoxAnimationDisappear {
+    0% {
+        opacity: 1;
+        transform:translate(0, 0px);
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, -50px);
+    }
 }
