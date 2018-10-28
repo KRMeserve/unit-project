@@ -14,7 +14,7 @@ app.controller("MainController", [
   function($http) {
     // -------- Test route --------
     this.hello = "Howdy";
-
+    this.hideLogOut = false;
     const controller = this;
     this.skills = [];
     this.interests = [];
@@ -38,6 +38,8 @@ app.controller("MainController", [
       this.newUsername = "";
       this.newPassword1 = "";
       this.newPassword2 = "";
+      this.username = "";
+      this.password = "";
     };
 
     // ------- Sets Session ------- OBSOLETE CODE
@@ -55,6 +57,24 @@ app.controller("MainController", [
     //     }
     //   );
     // };
+
+    // ------- Function to hide/show logout button on profile screen ------
+    this.logOutHidden = ()=>{
+        this.hideLogOut = !this.hideLogOut;
+        if (this.hideLogOut) {
+            $('#show-options-image').addClass('flipped');
+            $('#show-options-image').removeClass('flippedReset');
+            $('#hiddenLogOutBox').removeClass('hiddenBox');
+            $('#hiddenLogOutBox').addClass('hiddenBoxAnimationAppear')
+            $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationDisappear')
+        } else {
+            $('#hiddenLogOutBox').addClass('hiddenBox');
+            $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationAppear')
+            $('#hiddenLogOutBox').addClass('hiddenBoxAnimationDisappear')
+            $('#show-options-image').removeClass('flipped')
+            $('#show-options-image').addClass('flippedReset')
+        }
+    }
 
     //===========================================
     // FUNCTION TO GET PROFILE DETAILS ON LOGIN
@@ -80,6 +100,8 @@ app.controller("MainController", [
         }
       }).then(
         response => {
+            this.password = "";
+            this.username = "";
           this.currentUser = response.data;
           this.name = this.profileDetails(response.data.name, "NAME");
           this.proficiency = this.profileDetails(
