@@ -45,11 +45,23 @@
 .width80 {
   width: 80px;
 }
+.width100 {
+  width: 100px;
+}
 .width120 {
   width: 120px;
 }
 .width150 {
   width: 150px;
+}
+.width160 {
+  width: 160px;
+}
+.width200 {
+  width: 200px;
+}
+.width220 {
+  width: 220px;
 }
 /*====== HEIGHT ======*/
 .sHeight {
@@ -57,6 +69,9 @@
 }
 .fHeight {
   height: 100%;
+}
+.height5 {
+  height: 5px;
 }
 .height10 {
   height: 10px;
@@ -85,6 +100,15 @@
 .height150 {
   height: 150px;
 }
+.height160 {
+  height: 160px;
+}
+.height200 {
+  height: 200px;
+}
+.height220 {
+  height: 220px;
+}
 .height250 {
   height: 250px;
 }
@@ -93,6 +117,11 @@
 }
 .heightP15 {
   height: 15%;
+}
+
+/*====== OBJECT FIT ======*/
+.fitCover {
+  object-fit: cover;
 }
 
 /*====== PADDING ======*/
@@ -108,8 +137,14 @@
 .padHP5 {
   padding: 0px 5%;
 }
+.padV10 {
+  padding: 10px 0px;
+}
 .pad50 {
   padding: 50px;
+}
+.pad10 {
+  padding: 10px;
 }
 .padT20 {
   padding-top: 20px;
@@ -143,11 +178,26 @@
 .border3White {
   border: #fff solid 3px;
 }
+.bRad10 {
+  border-radius: 10px;
+}
 .bRad20 {
   border-radius: 20px;
 }
 .bRad30 {
   border-radius: 30px;
+}
+.bRad75 {
+  border-radius: 75px;
+}
+.bRad80 {
+  border-radius: 80px;
+}
+.bRad100 {
+  border-radius: 100px;
+}
+.bRad110 {
+  border-radius: 110px;
 }
 .bRad200 {
   border-radius: 200px;
@@ -167,9 +217,18 @@
 .bgDarkGray {
   background-color: #585858;
 }
+.bgLightPurple {
+  background-color: #e9d0ff;
+}
+.bgGreen {
+  background-color: #09b247;
+}
 /* TRANSLUCENT COLORS */
 .bgPurple30 {
   background-color: #9013fe4d;
+}
+.bgPurple65 {
+  background-color: #9013fea6;
 }
 .bgWhite75 {
   background-color: #ffffffbf;
@@ -245,6 +304,9 @@
 .fWeight300 {
   font-weight: 300;
 }
+.fWeight500 {
+  font-weight: 500;
+}
 /*====== FONT COLORS ======*/
 .fWhite {
   color: #fff;
@@ -257,6 +319,12 @@
 }
 .fDarkGray {
   color: #585858;
+}
+.fBlack {
+  color: #333;
+}
+.fGreen {
+  color: #09b247;
 }
 
 /*====== FONT ALIGNMENT ======*/
