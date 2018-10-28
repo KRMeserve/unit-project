@@ -16,4 +16,14 @@ router.post('/', (req, res)=>{
     });
 });
 
+router.get('/destroy', (req, res)=>{
+    req.session.destroy((error)=>{
+        if(error){
+            console.log(error);
+        } else {
+            res.json('logged out');
+        };
+    });
+});
+
 module.exports = router;

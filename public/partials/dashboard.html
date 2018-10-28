@@ -1,1 +1,13 @@
-<div></div>
+<div ng-controller="DashboardController as dash">
+    <div ng-include="'partials/header.html'"></div>
+    <div ng-include="'partials/navBar.html'"></div>
+    <div ng-include="'partials/userInfo.html'"></div>
+    <div ng-include="'partials/userDetails.html'"></div>
+    <div class="nav">
+        <h1 class="fAclonica">CIRCUIT CON.</h1>
+        <h4 class="fAclonica">Welcome, {{ ctrl.currentUser.username }}.</h4>
+        <h4 class="fAclonica"><a href="#">Portfolio</a></h4>
+        <h4 class="fAclonica"><a href="#" ng-click="ctrl.logOut()">Log Out</a></h4>
+    </div>
+
+</div>
