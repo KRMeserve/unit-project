@@ -107,6 +107,10 @@ app.controller("MainController", [
                         response.data.proficiency,
                         "PROFICIENCY"
                     );
+                    this.github = this.profileDetails(
+                        response.data.github,
+                        "GITHUB LINK"
+                    );
                     if (response.data.skills) {
                         this.skills = response.data.skills;
                     }
@@ -288,6 +292,7 @@ app.controller("MainController", [
         this.nameEdit = false;
         this.brandEdit = false;
         this.proficiencyEdit = false;
+        this.githubEdit = false;
         this.addSkillField = false;
         this.addInterestField = false;
 
@@ -361,6 +366,9 @@ app.controller("MainController", [
         this.toggleProficiencyEdit = () => {
             this.proficiencyEdit = !this.proficiencyEdit;
             if (this.proficiencyEdit) {
+                if (this.proficiency === "CLICK HERE TO ADD PROFICIENCY") {
+                    this.proficiency = "";
+                }
                 $(() => {
                     $("#proficiencyEditField").focus();
                 });
@@ -371,6 +379,37 @@ app.controller("MainController", [
                     url: "/users/" + this.currentUser._id,
                     data: {
                         proficiency: this.proficiency
+                    }
+                }).then(
+                    response => {
+                        console.log(response);
+                    },
+                    error => {
+                        console.log(error);
+                    }
+                );
+            }
+        };
+
+        //===========================================
+        // TOGGLES GITHUB LINK EDIT ON CLICK
+        //===========================================
+        this.toggleGithubEdit = () => {
+            this.githubEdit = !this.githubEdit;
+            if (this.githubEdit) {
+                if (this.github === "CLICK HERE TO ADD GITHUB LINK") {
+                    this.github = "";
+                }
+                $(() => {
+                    $("#githubEditField").focus();
+                });
+            } else {
+                console.log(`need to post github`);
+                $http({
+                    method: "PUT",
+                    url: `/users/${this.currentUser._id}`,
+                    data: {
+                        github: this.github
                     }
                 }).then(
                     response => {

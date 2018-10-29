@@ -22,6 +22,13 @@
     </div>
     <div class="height40"></div>
     <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">GitHub Link:</div>
+        <div ng-if="!ctrl.githubEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleGithubEdit()">{{ctrl.github}}</div>
+        <input ng-if="ctrl.githubEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2" ng-click="ctrl.toggleGithubEdit()"
+            value="" id="githubEditField" ng-model="ctrl.github" />
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
         <div class="flex1 fWeight300 fPurple">Skills:</div>
         <div class="flex2 bgGreen cPointer pad10 tAlignCenter" ng-click="ctrl.toggleAddSkillField()">CLICK TO ADD
             SKILLS</div>
