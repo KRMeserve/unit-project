@@ -162,21 +162,6 @@ app.controller("MainController", [
             );
         };
 
-        // -------- Get users route --------
-        // this.getUsers = () => {
-        //     $http({
-        //         method: "GET",
-        //         url: "/users"
-        //     }).then(
-        //         response => {
-        //             this.allUsers = response;
-        //         },
-        //         error => {
-        //             console.log(error);
-        //         }
-        //     );
-        // };
-
         // -------- Create User Route --------
         this.createUser = () => {
             console.log("Entering Create User");
@@ -363,4 +348,19 @@ app.controller("MainController", [
 //       console.log(error);
 //     }
 //   );
+// };
+
+// -------- Get users route --------
+// this.getUsers = () => {
+//     $http({
+//         method: "GET",
+//         url: "/users"
+//     }).then(
+//         response => {
+//             this.allUsers = response;
+//         },
+//         error => {
+//             console.log(error);
+//         }
+//     );
 // };
