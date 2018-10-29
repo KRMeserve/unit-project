@@ -48,7 +48,6 @@ app.controller("MainController", [
             this.password = "";
         };
 
-<<<<<<< HEAD
     // ------- Sets Session ------- OBSOLETE CODE
     // this.goApp = () => {
     //   $http({
@@ -87,28 +86,6 @@ app.controller("MainController", [
             setTimeout(this.removeHiddenBox, 150)
         }
     }
-=======
-        // ------- Function to hide/show logout button on profile screen ------
-        this.logOutHidden = () => {
-            console.log(`entering log out hidden function`);
-            this.hideLogOut = !this.hideLogOut;
-            if (this.hideLogOut) {
-                $("#show-options-image").addClass("flipped");
-                $("#show-options-image").removeClass("flippedReset");
-                $("#hiddenLogOutBox").removeClass("hiddenBox");
-                $("#hiddenLogOutBox").addClass("hiddenBoxAnimationAppear");
-                $("#hiddenLogOutBox").removeClass(
-                    "hiddenBoxAnimationDisappear"
-                );
-            } else {
-                $("#hiddenLogOutBox").addClass("hiddenBox");
-                $("#hiddenLogOutBox").removeClass("hiddenBoxAnimationAppear");
-                $("#hiddenLogOutBox").addClass("hiddenBoxAnimationDisappear");
-                $("#show-options-image").removeClass("flipped");
-                $("#show-options-image").addClass("flippedReset");
-            }
-        };
-
         //===========================================
         // FUNCTION TO GET PROFILE DETAILS ON LOGIN
         //===========================================
@@ -122,7 +99,6 @@ app.controller("MainController", [
             }
             return fieldVariable;
         };
->>>>>>> 2fe9979cd3230495ca43a3df73099926ef181a0e
 
         // ------- Sessions Log In Route -------
         this.logIn = () => {
