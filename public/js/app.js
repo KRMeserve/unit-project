@@ -18,11 +18,14 @@ app.controller("MainController", [
         const controller = this;
         this.skills = [];
         this.interests = [];
+        this.currentTabId = 1;
 
         // ------- Partials Logic -------
         this.includePath = "partials/signup.html";
 
         this.pagePath = "partials/getStarted.html";
+
+        this.tabPath = "partials/profile.html";
 
         this.changeIncludePath = path => {
             this.includePath = "partials/" + path + ".html";
@@ -37,6 +40,7 @@ app.controller("MainController", [
 
         // ------- Clearing Input Field Logic -------
         this.clearFields = () => {
+            console.log(`Entering clear fields function`);
             this.newUsername = "";
             this.newPassword1 = "";
             this.newPassword2 = "";
@@ -46,6 +50,7 @@ app.controller("MainController", [
 
         // ------- Function to hide/show logout button on profile screen ------
         this.logOutHidden = () => {
+            console.log(`entering log out hidden function`);
             this.hideLogOut = !this.hideLogOut;
             if (this.hideLogOut) {
                 $("#show-options-image").addClass("flipped");
@@ -68,6 +73,7 @@ app.controller("MainController", [
         // FUNCTION TO GET PROFILE DETAILS ON LOGIN
         //===========================================
         this.profileDetails = (dataField, addText) => {
+            console.log(`entering profile details function`);
             let fieldVariable;
             if (dataField) {
                 fieldVariable = dataField;
@@ -79,6 +85,7 @@ app.controller("MainController", [
 
         // ------- Sessions Log In Route -------
         this.logIn = () => {
+            console.log(`entering login function`);
             $http({
                 method: "POST",
                 url: "/sessions",
@@ -92,6 +99,10 @@ app.controller("MainController", [
                     this.username = "";
                     this.currentUser = response.data;
                     this.name = this.profileDetails(response.data.name, "NAME");
+                    this.brandStatement = this.profileDetails(
+                        response.data.brandStatement,
+                        "BRAND STATEMENT"
+                    );
                     this.proficiency = this.profileDetails(
                         response.data.proficiency,
                         "PROFICIENCY"
@@ -114,6 +125,7 @@ app.controller("MainController", [
 
         // ------- Session Log Out Route -------
         this.logOut = () => {
+            console.log(`entering log out function`);
             $http({
                 method: "GET",
                 url: "/sessions/destroy"
@@ -129,6 +141,7 @@ app.controller("MainController", [
 
         // ------- Update user route -------
         this.editUser = user => {
+            console.log(`entering edit user function`);
             $http({
                 method: "PUT",
                 url: "/users/" + user._id,
@@ -146,9 +159,11 @@ app.controller("MainController", [
                 }
             );
         };
+        // WHERE IS THIS BEING CALLED FROM?
 
         // ------- Delete user route -------
         this.deleteUser = user => {
+            console.log(`entering delete user function`);
             $http({
                 method: "DELETE",
                 url: "/users/" + user._id
@@ -205,9 +220,73 @@ app.controller("MainController", [
         });
 
         //===========================================
+        // FUNCTION TO SWITCH TABS BETWEEN PROFILE
+        // PORTFOLIO AND CIRCUIT
+        //===========================================
+        this.switchTab = tabId => {
+            console.log(`entering switch tab function`);
+            //===========================================
+            // CHECK IF TAB IS ALREADY IN THE RIGHT ONE
+            // ONLY IF ITS NOT, DO WE HAVE TO SWITCH
+            //===========================================
+            if (tabId !== this.currentTabId) {
+                // THEN SWITCH TABS
+                //===========================================
+                // SET CURRENT TAB ID TO CLICKED TAB ID
+                //===========================================
+                this.currentTabId = tabId;
+                console.log(`Tab Id is ${tabId}`);
+                if (tabId === 1) {
+                    this.tabPath = "partials/profile.html";
+                    $(".tab")
+                        .removeClass("bgGreen fSize2")
+                        .addClass("hoverGreen cPointer fSize12");
+                    $("#tab1")
+                        .addClass("bgGreen fSize2")
+                        .removeClass("hoverGreen cPointer fSize12");
+                    $(".tabName")
+                        .removeClass("fSize3")
+                        .addClass("fSize2");
+                    $("#tabProfile")
+                        .addClass("fSize3")
+                        .removeClass("fSize2");
+                } else if (tabId === 2) {
+                    this.tabPath = "partials/portfolio.html";
+                    $(".tab")
+                        .removeClass("bgGreen fSize2")
+                        .addClass("hoverGreen cPointer fSize12");
+                    $("#tab2")
+                        .addClass("bgGreen fSize2")
+                        .removeClass("hoverGreen cPointer fSize12");
+                    $(".tabName")
+                        .removeClass("fSize3")
+                        .addClass("fSize2");
+                    $("#tabPortfolio")
+                        .addClass("fSize3")
+                        .removeClass("fSize2");
+                } else if (tabId === 3) {
+                    this.tabPath = "partials/circuit.html";
+                    $(".tab")
+                        .removeClass("bgGreen fSize2")
+                        .addClass("hoverGreen cPointer fSize12");
+                    $("#tab3")
+                        .addClass("bgGreen fSize2")
+                        .removeClass("hoverGreen cPointer fSize12");
+                    $(".tabName")
+                        .removeClass("fSize3")
+                        .addClass("fSize2");
+                    $("#tabCircuit")
+                        .addClass("fSize3")
+                        .removeClass("fSize2");
+                }
+            }
+        };
+
+        //===========================================
         // Keep track of profile field edit states
         //===========================================
         this.nameEdit = false;
+        this.brandEdit = false;
         this.proficiencyEdit = false;
         this.addSkillField = false;
         this.addInterestField = false;
@@ -218,6 +297,9 @@ app.controller("MainController", [
         this.toggleNameEdit = () => {
             this.nameEdit = !this.nameEdit;
             if (this.nameEdit) {
+                if (this.name === "CLICK HERE TO ADD NAME") {
+                    this.name = "";
+                }
                 $(() => {
                     $("#nameEditField").focus();
                 });
@@ -228,6 +310,39 @@ app.controller("MainController", [
                     url: "/users/" + this.currentUser._id,
                     data: {
                         name: this.name
+                    }
+                }).then(
+                    response => {
+                        console.log(response);
+                    },
+                    error => {
+                        console.log(error);
+                    }
+                );
+            }
+        };
+
+        //===========================================
+        // TOGGLES BRAND STATEMENT ON CLICK
+        //===========================================
+        this.toggleBrandEdit = () => {
+            this.brandEdit = !this.brandEdit;
+            if (this.brandEdit) {
+                if (
+                    this.brandStatement === "CLICK HERE TO ADD BRAND STATEMENT"
+                ) {
+                    this.brandStatement = "";
+                }
+                $(() => {
+                    $("#brandEditField").focus();
+                });
+            } else {
+                console.log(`post request for brand statement`);
+                $http({
+                    method: "PUT",
+                    url: `/users/${this.currentUser._id}`,
+                    data: {
+                        brandStatement: this.brandStatement
                     }
                 }).then(
                     response => {

@@ -8,6 +8,13 @@
     </div>
     <div class="height40"></div>
     <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Brand Statement:</div>
+        <div ng-if="!ctrl.brandEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleBrandEdit()">{{ctrl.brandStatement}}</div>
+        <input ng-if="ctrl.brandEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2" ng-click="ctrl.toggleBrandEdit()"
+            value="" id="brandEditField" ng-model="ctrl.brandStatement" />
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
         <div class="flex1 fWeight300 fPurple">Proficiency:</div>
         <div ng-if="!ctrl.proficiencyEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleProficiencyEdit()">{{ctrl.proficiency}}</div>
         <input ng-if="ctrl.proficiencyEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2"

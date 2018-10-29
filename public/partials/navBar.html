@@ -9,21 +9,24 @@
                 <div class="fWidth height10 bgWhite"></div>
             </div>
             <div class="widthP90 height60 absolute dFlex alignCenter justifyBetween">
-                <div class="fHeight width80 dFlex center fSize2 fWhite fAclonica bgPurple bgGreen">01</div>
-                <div class="fHeight width80 dFlex center fSize12 fWhite fAclonica bgPurple hoverGreen cPointer">02</div>
+                <div class="fHeight width80 dFlex center fSize2 fWhite fAclonica bgPurple tab bgGreen" ng-click="ctrl.switchTab(1)"
+                    id="tab1">01</div>
+                <div class="fHeight width80 dFlex center fSize12 fWhite fAclonica bgPurple tab hoverGreen cPointer"
+                    ng-click="ctrl.switchTab(2)" id="tab2">02</div>
                 <div class="fHeight dFlex flexRow">
-                    <div class="fHeight width80 dFlex center fSize12 fWhite fAclonica bgPurple hoverGreen cPointer">03</div>
+                    <div class="fHeight width80 dFlex center fSize12 fWhite fAclonica bgPurple tab hoverGreen cPointer"
+                        ng-click="ctrl.switchTab(3)" id="tab3">03</div>
                     <div class="fHeight width150"></div>
                 </div>
             </div>
         </div>
         <div class="height20"></div>
         <div class="fWidth dFlex flexRow justifyBetween fAclonica fWhite">
-            <div class="fSize3">PROFILE</div>
-            <div class="fSize2">PORTFOLIO</div>
+            <div class="fSize3 tabName" id="tabProfile">PROFILE</div>
+            <div class="fSize2 tabName" id="tabPortfolio">PORTFOLIO</div>
             <div class="dFlex flexRow">
                 <div class="width20"></div>
-                <div class="fSize2">CIRCUIT</div>
+                <div class="fSize2 tabName" id="tabCircuit">CIRCUIT</div>
                 <div class="width100"></div>
             </div>
         </div>
