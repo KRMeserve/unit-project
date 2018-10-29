@@ -28,6 +28,9 @@ app.controller("MainController", [
             this.includePath = "partials/" + path + ".html";
         };
 
+        //===========================================
+        // FUNCTION FOR MOVING BETWEEN PAGES ON APP
+        //===========================================
         this.changePagePath = path => {
             this.pagePath = `partials/${path}.html`;
         };
@@ -40,22 +43,6 @@ app.controller("MainController", [
             this.username = "";
             this.password = "";
         };
-
-        // ------- Sets Session ------- OBSOLETE CODE
-        // this.goApp = () => {
-        //   $http({
-        //     method: "GET",
-        //     url: "/app"
-        //   }).then(
-        //     response => {
-        //       this.currentUser = response.data.username;
-        //       console.log(this.currentUser);
-        //     },
-        //     error => {
-        //       console.log(error);
-        //     }
-        //   );
-        // };
 
         // ------- Function to hide/show logout button on profile screen ------
         this.logOutHidden = () => {
@@ -176,19 +163,19 @@ app.controller("MainController", [
         };
 
         // -------- Get users route --------
-        this.getUsers = () => {
-            $http({
-                method: "GET",
-                url: "/users"
-            }).then(
-                response => {
-                    this.allUsers = response;
-                },
-                error => {
-                    console.log(error);
-                }
-            );
-        };
+        // this.getUsers = () => {
+        //     $http({
+        //         method: "GET",
+        //         url: "/users"
+        //     }).then(
+        //         response => {
+        //             this.allUsers = response;
+        //         },
+        //         error => {
+        //             console.log(error);
+        //         }
+        //     );
+        // };
 
         // -------- Create User Route --------
         this.createUser = () => {
@@ -357,3 +344,23 @@ app.controller("MainController", [
         };
     }
 ]);
+
+//===========================================
+// CODE GRAVEYARD
+//===========================================
+
+// ------- Sets Session ------- OBSOLETE CODE
+// this.goApp = () => {
+//   $http({
+//     method: "GET",
+//     url: "/app"
+//   }).then(
+//     response => {
+//       this.currentUser = response.data.username;
+//       console.log(this.currentUser);
+//     },
+//     error => {
+//       console.log(error);
+//     }
+//   );
+// };
