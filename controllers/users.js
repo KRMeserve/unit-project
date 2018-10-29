@@ -18,6 +18,8 @@ router.get("/", (req, res) => {
 
 // -------- CREATE ROUTE FOR USERS --------
 router.post("/", (req, res) => {
+    console.log(`REQ BODY IS`);
+    console.log(req.body);
     req.body.password = bcrypt.hashSync(
         req.body.password,
         bcrypt.genSaltSync(10)
