@@ -48,27 +48,44 @@ app.controller("MainController", [
             this.password = "";
         };
 
-        // ------- Function to hide/show logout button on profile screen ------
-        this.logOutHidden = () => {
-            console.log(`entering log out hidden function`);
-            this.hideLogOut = !this.hideLogOut;
-            if (this.hideLogOut) {
-                $("#show-options-image").addClass("flipped");
-                $("#show-options-image").removeClass("flippedReset");
-                $("#hiddenLogOutBox").removeClass("hiddenBox");
-                $("#hiddenLogOutBox").addClass("hiddenBoxAnimationAppear");
-                $("#hiddenLogOutBox").removeClass(
-                    "hiddenBoxAnimationDisappear"
-                );
-            } else {
-                $("#hiddenLogOutBox").addClass("hiddenBox");
-                $("#hiddenLogOutBox").removeClass("hiddenBoxAnimationAppear");
-                $("#hiddenLogOutBox").addClass("hiddenBoxAnimationDisappear");
-                $("#show-options-image").removeClass("flipped");
-                $("#show-options-image").addClass("flippedReset");
-            }
-        };
+    // ------- Sets Session ------- OBSOLETE CODE
+    // this.goApp = () => {
+    //   $http({
+    //     method: "GET",
+    //     url: "/app"
+    //   }).then(
+    //     response => {
+    //       this.currentUser = response.data.username;
+    //       console.log(this.currentUser);
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
+    // };
+    this.removeHiddenBox = ()=>{
+        console.log('running');
+        $('#hiddenLogOutBox').addClass('hiddenBox');
+    }
 
+    // ------- Function to hide/show logout button on profile screen ------
+    this.logOutHidden = ()=>{
+        this.hideLogOut = !this.hideLogOut;
+        if (this.hideLogOut) {
+            $('#show-options-image').addClass('flipped');
+            $('#show-options-image').removeClass('flippedReset');
+            $('#hiddenLogOutBox').removeClass('hiddenBox');
+            $('#hiddenLogOutBox').addClass('hiddenBoxAnimationAppear')
+            $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationDisappear')
+        } else {
+
+            $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationAppear')
+            $('#hiddenLogOutBox').addClass('hiddenBoxAnimationDisappear')
+            $('#show-options-image').removeClass('flipped')
+            $('#show-options-image').addClass('flippedReset')
+            setTimeout(this.removeHiddenBox, 150)
+        }
+    }
         //===========================================
         // FUNCTION TO GET PROFILE DETAILS ON LOGIN
         //===========================================
