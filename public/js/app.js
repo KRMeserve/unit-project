@@ -57,6 +57,10 @@ app.controller("MainController", [
     //     }
     //   );
     // };
+    this.removeHiddenBox = ()=>{
+        console.log('running');
+        $('#hiddenLogOutBox').addClass('hiddenBox');
+    }
 
     // ------- Function to hide/show logout button on profile screen ------
     this.logOutHidden = ()=>{
@@ -68,11 +72,12 @@ app.controller("MainController", [
             $('#hiddenLogOutBox').addClass('hiddenBoxAnimationAppear')
             $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationDisappear')
         } else {
-            $('#hiddenLogOutBox').addClass('hiddenBox');
+
             $('#hiddenLogOutBox').removeClass('hiddenBoxAnimationAppear')
             $('#hiddenLogOutBox').addClass('hiddenBoxAnimationDisappear')
             $('#show-options-image').removeClass('flipped')
             $('#show-options-image').addClass('flippedReset')
+            setTimeout(this.removeHiddenBox, 150)
         }
     }
 
