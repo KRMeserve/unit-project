@@ -8,10 +8,24 @@
     </div>
     <div class="height40"></div>
     <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">Brand Statement:</div>
+        <div ng-if="!ctrl.brandEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleBrandEdit()">{{ctrl.brandStatement}}</div>
+        <input ng-if="ctrl.brandEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2" ng-click="ctrl.toggleBrandEdit()"
+            value="" id="brandEditField" ng-model="ctrl.brandStatement" />
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
         <div class="flex1 fWeight300 fPurple">Proficiency:</div>
         <div ng-if="!ctrl.proficiencyEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleProficiencyEdit()">{{ctrl.proficiency}}</div>
         <input ng-if="ctrl.proficiencyEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2"
             ng-click="ctrl.toggleProficiencyEdit()" value="" id="proficiencyEditField" ng-model="ctrl.proficiency" />
+    </div>
+    <div class="height40"></div>
+    <div class="dFlex flexRow alignCenter">
+        <div class="flex1 fWeight300 fPurple">GitHub Link:</div>
+        <div ng-if="!ctrl.githubEdit" class="flex2 hoverGreen cPointer pad10" ng-click="ctrl.toggleGithubEdit()">{{ctrl.github}}</div>
+        <input ng-if="ctrl.githubEdit" type="text" class="flex2 hoverGreen cPointer pad10 fQuicksand fSize2" ng-click="ctrl.toggleGithubEdit()"
+            value="" id="githubEditField" ng-model="ctrl.github" />
     </div>
     <div class="height40"></div>
     <div class="dFlex flexRow alignCenter">
@@ -32,7 +46,7 @@
     <div class="dFlex flexRow">
         <div class="flex1"></div>
         <div class="flex2 flexColumn">
-            <div ng-repeat="skill in ctrl.skills">
+            <div ng-repeat="skill in ctrl.skills track by $index">
                 <div class="fQuicksand fSize2">{{skill}}</div>
                 <div class="height20"></div>
             </div>
@@ -57,7 +71,7 @@
     <div class="dFlex flexRow">
         <div class="flex1"></div>
         <div class="flex2 flexColumn">
-            <div ng-repeat="interest in ctrl.interests">
+            <div ng-repeat="interest in ctrl.interests track by $index">
                 <div class="fQuicksand fSize2">{{interest}}</div>
                 <div class="height20"></div>
             </div>

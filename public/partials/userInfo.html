@@ -7,15 +7,14 @@
         <div class="width40"></div>
         <div class="flex1 dFlex flexColumn">
             <div class="dFlex flexRow justifyBetween">
-                <div class="fAclonica fSize3 fBlack">{{ctrl.currentUser.name}}</div>
-                <div class="dFlex flexRow alignCenter">
-                    <div class="pad10 width100 dFlex center hoverGreen cPointer fWeight500 bRad10 bgWhite fPurple fQuicksand">FOLLOW</div>
-                    <div class="width50"></div>
-                    <div class="pad10 width100 dFlex center hoverGreen cPointer fWeight500 bRad10 bgPurple fWhite fQuicksand">MESSAGE</div>
-                </div>
+                <div class="fAclonica fSize3 fBlack">{{(ctrl.name==='CLICK HERE TO ADD NAME'?'ENTER NAME
+                    ON PROFILE PAGE':ctrl.name)}}</div>
             </div>
             <div class="height20"></div>
-            <div class="fQuicksand fSize12 fWeight300">{{ctrl.currentUser.brandStatement}}</div>
+
+            <div class="fQuicksand fSize12 fWeight300">
+                {{(ctrl.brandStatement==='CLICK HERE TO ADD BRAND STATEMENT')?'ENTER BRAND STATEMENT ON PROFILE
+                PAGE':ctrl.brandStatement}}</div>
             <div class="height20"></div>
             <div class="height5 bgPurple"></div>
             <div class="height20"></div>
@@ -36,7 +35,8 @@
             <div class="height20"></div>
             <div class="height5 bgPurple"></div>
             <div class="height20"></div>
-            <div class="bgPurple pad10 dFlex center fQuicksand fWhite bRad10 hoverGreen cPointer fSize12 fWeight500">LINK
+            <div class="bgPurple pad10 dFlex center fQuicksand fWhite bRad10 hoverGreen cPointer fSize12 fWeight500">GO
+                TO
                 YOUR
                 GITHUB
                 PROFILE</div>
