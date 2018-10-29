@@ -32,7 +32,7 @@
     <div class="dFlex flexRow">
         <div class="flex1"></div>
         <div class="flex2 flexColumn">
-            <div ng-repeat="skill in ctrl.skills">
+            <div ng-repeat="skill in ctrl.skills track by $index">
                 <div class="fQuicksand fSize2">{{skill}}</div>
                 <div class="height20"></div>
             </div>
@@ -57,7 +57,7 @@
     <div class="dFlex flexRow">
         <div class="flex1"></div>
         <div class="flex2 flexColumn">
-            <div ng-repeat="interest in ctrl.interests">
+            <div ng-repeat="interest in ctrl.interests track by $index">
                 <div class="fQuicksand fSize2">{{interest}}</div>
                 <div class="height20"></div>
             </div>
