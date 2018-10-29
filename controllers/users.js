@@ -6,8 +6,13 @@ const User = require("../models/users.js");
 
 // -------- GET ROUTE FOR USERS --------
 router.get("/", (req, res) => {
-    User.find({}, (error, allUsers) => {
-        res.json(allUsers);
+    User.find({}, (err, allUsers) => {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            res.json(allUsers);
+        }
     });
 });
 
