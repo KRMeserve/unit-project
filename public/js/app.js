@@ -48,6 +48,29 @@ app.controller("MainController", [
             this.password = "";
         };
 
+
+        // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
+        this.initMap = ()=>{
+            let latLong = {lat: -25.344, lng: 131.036};
+            let map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: latLong});
+            let marker = new google.maps.Marker({position: latLong, map: map});
+        };
+
+        this.loadMap = ()=>{
+            console.log('running function loadMap');
+            $http({
+                method: 'GET',
+                url: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDxI7hQ6FV7eJebME3a_nqIZ2vh7Shv0TQ&callback=initMap'
+            }).then(response=>{
+                console.log(response);
+            }, error =>{
+                console.log(error);
+            })
+        }
+
+        // ------- END OF GOOGLE MAPS STUFF -------
+
     // ------- Sets Session ------- OBSOLETE CODE
     // this.goApp = () => {
     //   $http({

@@ -84,4 +84,17 @@
     </div>
     <div class="height40"></div>
     <div class="dFlex flexRow"></div>
+    <div id="map" class="widthP80 height250" ng-init="ctrl.loadMap()"></div>
 </div>
+<!-- GOOGLE MAPS STUFF - NOT WORKING YET -->
+<script>
+    const initMap = ()=>{
+        let latLong = {lat: -25.344, lng: 131.036};
+        let map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: latLong});
+        let marker = new google.maps.Marker({position: latLong, map: map});
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxI7hQ6FV7eJebME3a_nqIZ2vh7Shv0TQ&callback=initMap">
+console.log('running');
+</script>
