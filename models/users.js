@@ -11,6 +11,7 @@ const userSchema = Schema({
     projects: { type: Number, default: 0 },
     circuitPoints: { type: Number, default: 0 },
     github: String,
+    githubUserToken: { type: String, default: null },
     name: String,
     brandStatement: String,
     proficiency: String,

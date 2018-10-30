@@ -481,6 +481,23 @@ app.controller("MainController", [
                 }
             );
         };
+
+        //===========================================
+        // GET DATA FROM GITHUB API
+        //===========================================
+        this.getGithubData = () => {
+            $http({
+                method: "GET",
+                url: `/github/${this.currentUser._id}`
+            }).then(
+                response => {
+                    console.log(response);
+                },
+                err => {
+                    console.log(err);
+                }
+            );
+        };
     }
 ]);
 
