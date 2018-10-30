@@ -503,6 +503,7 @@ function MainCtrl($http, $window) {
         const authorize_url = "https://github.com/login/oauth/authorize";
         const redirect_uri = "https://circuit-connection.herokuapp.com/github/callback";
         const encoded_redirect_uri = encodeURIComponent(redirect_uri);
+        console.log(encoded_redirect_uri);
         const client_id = "806f2c024e556b9cd021";
         $http({
             method: "GET",
