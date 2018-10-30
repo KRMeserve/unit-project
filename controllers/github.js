@@ -46,6 +46,45 @@ const getAndDisplayData = res => {
 };
 
 //===========================================
+// AFTER 1st TIME AUTHORIZATION, GITHUB
+// REDIRECTS TO THIS URL
+//===========================================
+router.get("/callback", (req, res) => {
+    console.log(`entering callback route`);
+    const auth_code = req.query.code;
+    console.log(auth_code);
+    console.log({
+        client_id: client_id,
+        client_secret: client_secret,
+        code: auth_code,
+        redirect_uri: redirect_uri
+    });
+    request(
+        {
+            uri: token_url,
+            method: "POST",
+            form: {
+                client_id: client_id,
+                client_secret: client_secret,
+                code: auth_code,
+                redirect_uri: redirect_uri
+            }
+        },
+        function(err, response, body) {
+            //===========================================
+            // RETRIEVE ACCESS TOKEN FROM BODY
+            //===========================================
+            access_token = body.split("&")[0].split("=")[1];
+            console.log(access_token);
+            //===========================================
+            // LATER: NEED TO SAVE ACCESS TOKEN IN DB FOR EACH USER
+            //===========================================
+            getAndDisplayData(res);
+        }
+    );
+});
+
+//===========================================
 // RECEIVE DATA FROM GET REQUEST
 //===========================================
 router.get("/:id", (req, res) => {
@@ -72,35 +111,15 @@ router.get("/:id", (req, res) => {
 });
 
 //===========================================
-// AFTER 1st TIME AUTHORIZATION, GITHUB
-// REDIRECTS TO THIS URL
+// REDIRECT ROUTE
 //===========================================
-router.get("/callback", (req, res) => {
-    console.log(`entering callback route`);
-    const auth_code = req.query.code;
-    res.send('hello');
-    request(
-        {
-            uri: token_url,
-            method: "POST",
-            form: {
-                client_id: client_id,
-                client_secret: client_secret,
-                code: auth_code,
-                redirect_uri: redirect_uri
-            }
-        },
-        function(err, response, body) {
-            //===========================================
-            // RETRIEVE ACCESS TOKEN FROM BODY
-            //===========================================
-            access_token = body.split("&")[0].split("=")[1];
-            //===========================================
-            // LATER: NEED TO SAVE ACCESS TOKEN IN DB FOR EACH USER
-            //===========================================
-            getAndDisplayData(res);
-        }
-    );
+router.get("/redirect", (req, res) => {
+    console.log(`entering redirect route`);
+    res.render("github.ejs");
+});
+
+router.get("/authorize", (req, res) => {
+    res.redirect("/map");
 });
 
 module.exports = router;

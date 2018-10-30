@@ -41,6 +41,7 @@ function MainCtrl($http, $window) {
         this.password = "";
     };
 
+<<<<<<< HEAD
         // ------- ALL USERS FUNCTION FOR CIRCUIT PAGE -------
         this.getAllUsers = ()=>{
             $http({
@@ -48,9 +49,20 @@ function MainCtrl($http, $window) {
                 url: '/users'
             }).then(response=>{
                 this.allUsers = [response.data]
+=======
+    this.getAllUsers = () => {
+        $http({
+            method: "GET",
+            url: "/users"
+        }).then(
+            response => {
+                this.allUsers = [response];
+>>>>>>> 7ac2bb5626596ae35e56244ece1ee14add087190
                 console.log(this.allUsers);
-            }, error=>{
+            },
+            error => {
                 console.log(error);
+<<<<<<< HEAD
             })
         }
         this.getAllUsers();
@@ -59,28 +71,39 @@ function MainCtrl($http, $window) {
             console.log('entering function goToMap');
             $window.location.href = '/map';
         }
+=======
+            }
+        );
+    };
 
-        // this.initMap = ()=>{
-        //     let latLong = {lat: -25.344, lng: 131.036};
-        //     let map = new google.maps.Map(
-        //         document.getElementById('map'), {zoom: 4, center: latLong});
-        //     let marker = new google.maps.Marker({position: latLong, map: map});
-        // };
-        //
-        // this.loadMap = ()=>{
-        //     console.log('running function loadMap');
-        //     $http({
-        //         method: 'GET',
-        //         url: '/map'
-        //     }).then(response=>{
-        //         console.log('ran loadMap function');
-        //         console.log(response);
-        //     }, error =>{
-        //         console.log(error);
-        //     })
-        // }
+    // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
+    this.goToMap = () => {
+        console.log("entering function goToMap");
+        $window.location.href = "/map";
+    };
+>>>>>>> 7ac2bb5626596ae35e56244ece1ee14add087190
 
-        // ------- END OF GOOGLE MAPS STUFF -------
+    // this.initMap = ()=>{
+    //     let latLong = {lat: -25.344, lng: 131.036};
+    //     let map = new google.maps.Map(
+    //         document.getElementById('map'), {zoom: 4, center: latLong});
+    //     let marker = new google.maps.Marker({position: latLong, map: map});
+    // };
+    //
+    // this.loadMap = ()=>{
+    //     console.log('running function loadMap');
+    //     $http({
+    //         method: 'GET',
+    //         url: '/map'
+    //     }).then(response=>{
+    //         console.log('ran loadMap function');
+    //         console.log(response);
+    //     }, error =>{
+    //         console.log(error);
+    //     })
+    // }
+
+    // ------- END OF GOOGLE MAPS STUFF -------
 
     // ------- Sets Session ------- OBSOLETE CODE
     // this.goApp = () => {
@@ -223,7 +246,7 @@ function MainCtrl($http, $window) {
             url: "/users/" + user._id
         }).then(
             response => {
-                this.changePagePath('getStarted');
+                this.changePagePath("getStarted");
             },
             error => {
                 console.log(error);
@@ -543,10 +566,10 @@ function MainCtrl($http, $window) {
     //===========================================
     this.getGithubData = () => {
         const authorize_url = "https://github.com/login/oauth/authorize";
-        const redirect_uri = "https://circuit-connection.herokuapp.com/github/callback";
+        const redirect_uri = "http://localhost:3000/github/callback";
         const encoded_redirect_uri = encodeURIComponent(redirect_uri);
         console.log(encoded_redirect_uri);
-        const client_id = '1b36a09092188067923f';
+        const client_id = "806f2c024e556b9cd021";
         $http({
             method: "GET",
             url: `/github/${this.currentUser._id}`
