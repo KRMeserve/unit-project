@@ -504,7 +504,7 @@ function MainCtrl($http, $window) {
         const redirect_uri = "https://circuit-connection.herokuapp.com/github/callback";
         const encoded_redirect_uri = encodeURIComponent(redirect_uri);
         console.log(encoded_redirect_uri);
-        const client_id = "806f2c024e556b9cd021";
+        const client_id = '1b36a09092188067923f';
         $http({
             method: "GET",
             url: `/github/${this.currentUser._id}`
