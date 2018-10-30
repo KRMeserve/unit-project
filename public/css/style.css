@@ -126,8 +126,8 @@
 }
 
 /*====== z-index ======*/
-.zIndex1 {
-    z-index: 1;
+.zIndex2 {
+    z-index: 2;
 }
 
 /*====== OBJECT FIT ======*/
@@ -255,7 +255,9 @@
 .absolute {
   position: absolute;
 }
-
+.posRel {
+    position: relative;
+}
 /*====== DISPLAY INLINE ======*/
 
 .dInline {
@@ -360,6 +362,10 @@
   background-color: #09b247;
   color: #333;
 }
+.hoverRed:hover {
+  background-color: #f45942;
+  color: #333;
+}
 
 /*====== TRANSITION CLASSES ======*/
 .hiddenBox {
@@ -367,10 +373,12 @@
 }
 .hiddenBoxAnimationAppear {
     animation-name: hiddenBoxAnimationAppear;
+    z-index: 1;
     animation-duration: .4s;
 }
 .hiddenBoxAnimationDisappear {
     animation-name: hiddenBoxAnimationDisappear;
+    z-index: 1;
     animation-duration: .2s;
 }
 .strangePosition {
@@ -404,27 +412,17 @@
 }
 @keyframes hiddenBoxAnimationAppear {
     0% {
-        display: block;
-        opacity: 0;
         transform:translate(0, -50px);
     }
     100% {
-        opacity: 1;
         transform: translate(0, 0);
     }
 }
 @keyframes hiddenBoxAnimationDisappear {
     0% {
-        display: show;
-        opacity: 1;
         transform:translate(0, 0px);
     }
-    50% {
-        opacity: 0;
-    }
     100% {
-        display: hidden;
-        opacity: 0;
-        transform: translate(0, -50px);
+        transform: translate(0, -100px);
     }
 }
