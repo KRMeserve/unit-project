@@ -41,7 +41,6 @@ function MainCtrl($http, $window) {
         this.password = "";
     };
 
-<<<<<<< HEAD
         // ------- ALL USERS FUNCTION FOR CIRCUIT PAGE -------
         this.getAllUsers = ()=>{
             $http({
@@ -49,20 +48,10 @@ function MainCtrl($http, $window) {
                 url: '/users'
             }).then(response=>{
                 this.allUsers = [response.data]
-=======
-    this.getAllUsers = () => {
-        $http({
-            method: "GET",
-            url: "/users"
-        }).then(
-            response => {
-                this.allUsers = [response];
->>>>>>> 7ac2bb5626596ae35e56244ece1ee14add087190
                 console.log(this.allUsers);
             },
             error => {
                 console.log(error);
-<<<<<<< HEAD
             })
         }
         this.getAllUsers();
@@ -71,17 +60,6 @@ function MainCtrl($http, $window) {
             console.log('entering function goToMap');
             $window.location.href = '/map';
         }
-=======
-            }
-        );
-    };
-
-    // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
-    this.goToMap = () => {
-        console.log("entering function goToMap");
-        $window.location.href = "/map";
-    };
->>>>>>> 7ac2bb5626596ae35e56244ece1ee14add087190
 
     // this.initMap = ()=>{
     //     let latLong = {lat: -25.344, lng: 131.036};
