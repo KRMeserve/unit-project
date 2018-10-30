@@ -11,6 +11,7 @@ function MainCtrl($http, $window) {
     this.skills = [];
     this.interests = [];
     this.currentTabId = 1;
+    this.allUsers = [];
 
     // ------- Partials Logic -------
     this.includePath = "partials/signup.html";
@@ -40,18 +41,19 @@ function MainCtrl($http, $window) {
         this.password = "";
     };
 
+        // ------- ALL USERS FUNCTION FOR CIRCUIT PAGE -------
         this.getAllUsers = ()=>{
             $http({
                 method: 'GET',
                 url: '/users'
             }).then(response=>{
-                this.allUsers = [response]
+                this.allUsers = [response.data]
                 console.log(this.allUsers);
             }, error=>{
                 console.log(error);
             })
         }
-
+        this.getAllUsers();
         // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
         this.goToMap = ()=>{
             console.log('entering function goToMap');
