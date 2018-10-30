@@ -53,25 +53,30 @@ function MainCtrl($http, $window) {
         }
 
         // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
-        this.initMap = ()=>{
-            let latLong = {lat: -25.344, lng: 131.036};
-            let map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 4, center: latLong});
-            let marker = new google.maps.Marker({position: latLong, map: map});
-        };
-
-        this.loadMap = ()=>{
-            console.log('running function loadMap');
-            $http({
-                method: 'GET',
-                url: '/map'
-            }).then(response=>{
-                console.log('ran loadMap function');
-                console.log(response);
-            }, error =>{
-                console.log(error);
-            })
+        this.goToMap = ()=>{
+            console.log('entering function goToMap');
+            $window.location.href = '/map';
         }
+
+        // this.initMap = ()=>{
+        //     let latLong = {lat: -25.344, lng: 131.036};
+        //     let map = new google.maps.Map(
+        //         document.getElementById('map'), {zoom: 4, center: latLong});
+        //     let marker = new google.maps.Marker({position: latLong, map: map});
+        // };
+        //
+        // this.loadMap = ()=>{
+        //     console.log('running function loadMap');
+        //     $http({
+        //         method: 'GET',
+        //         url: '/map'
+        //     }).then(response=>{
+        //         console.log('ran loadMap function');
+        //         console.log(response);
+        //     }, error =>{
+        //         console.log(error);
+        //     })
+        // }
 
         // ------- END OF GOOGLE MAPS STUFF -------
 
@@ -216,7 +221,7 @@ function MainCtrl($http, $window) {
             url: "/users/" + user._id
         }).then(
             response => {
-                this.getUsers();
+                this.changePagePath('getStarted');
             },
             error => {
                 console.log(error);
