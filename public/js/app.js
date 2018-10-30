@@ -1,6 +1,7 @@
 // -------- REQUIRED CONSTANTS FOR CIRCUIT ENTIRE APP --------
 const app = angular.module("CircuitApp", []);
 
+
 // ------- DASHBOARD CONTROLLER -------
 app.controller("DashboardController", ["$http", function($http) {}]);
 // TO USE THIS WE HAVE TO PASS DATA BETWEEN TWO CONTROLLERS
@@ -19,6 +20,7 @@ app.controller("MainController", [
         this.skills = [];
         this.interests = [];
         this.currentTabId = 1;
+        this.allUsers = [];
 
         // ------- Partials Logic -------
         this.includePath = "partials/signup.html";
@@ -48,6 +50,17 @@ app.controller("MainController", [
             this.password = "";
         };
 
+        this.getAllUsers = ()=>{
+            $http({
+                method: 'GET',
+                url: '/users'
+            }).then(response=>{
+                this.allUsers = [response]
+                console.log(this.allUsers);
+            }, error=>{
+                console.log(error);
+            })
+        }
 
         // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
         this.initMap = ()=>{
@@ -61,8 +74,9 @@ app.controller("MainController", [
             console.log('running function loadMap');
             $http({
                 method: 'GET',
-                url: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDxI7hQ6FV7eJebME3a_nqIZ2vh7Shv0TQ&callback=initMap'
+                url: '/map'
             }).then(response=>{
+                console.log('ran loadMap function');
                 console.log(response);
             }, error =>{
                 console.log(error);
