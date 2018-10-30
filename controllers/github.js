@@ -79,28 +79,28 @@ router.get("/callback", (req, res) => {
     console.log(`entering callback route`);
     const auth_code = req.query.code;
     res.send('hello');
-    // request(
-    //     {
-    //         uri: token_url,
-    //         method: "POST",
-    //         form: {
-    //             client_id: client_id,
-    //             client_secret: client_secret,
-    //             code: auth_code,
-    //             redirect_uri: redirect_uri
-    //         }
-    //     },
-    //     function(err, response, body) {
-    //         //===========================================
-    //         // RETRIEVE ACCESS TOKEN FROM BODY
-    //         //===========================================
-    //         access_token = body.split("&")[0].split("=")[1];
-    //         //===========================================
-    //         // LATER: NEED TO SAVE ACCESS TOKEN IN DB FOR EACH USER
-    //         //===========================================
-    //         getAndDisplayData(res);
-    //     }
-    // );
+    request(
+        {
+            uri: token_url,
+            method: "POST",
+            form: {
+                client_id: client_id,
+                client_secret: client_secret,
+                code: auth_code,
+                redirect_uri: redirect_uri
+            }
+        },
+        function(err, response, body) {
+            //===========================================
+            // RETRIEVE ACCESS TOKEN FROM BODY
+            //===========================================
+            access_token = body.split("&")[0].split("=")[1];
+            //===========================================
+            // LATER: NEED TO SAVE ACCESS TOKEN IN DB FOR EACH USER
+            //===========================================
+            getAndDisplayData(res);
+        }
+    );
 });
 
 module.exports = router;
