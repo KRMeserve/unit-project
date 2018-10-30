@@ -185,12 +185,13 @@ app.controller("MainController", [
         // ------- Delete user route -------
         this.deleteUser = user => {
             console.log(`entering delete user function`);
+            console.log(user);
             $http({
                 method: "DELETE",
                 url: "/users/" + user._id
             }).then(
                 response => {
-                    this.getUsers();
+                    this.changePagePath("getStarted");
                 },
                 error => {
                     console.log(error);
