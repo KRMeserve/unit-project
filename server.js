@@ -28,7 +28,7 @@ app.use("/users", userController);
 const sessionController = require("./controllers/sessions.js");
 app.use("/sessions", sessionController);
 // Github Controller
-const githubController = require("./controllers/oAuth.js");
+const githubController = require("./controllers/github.js");
 app.use("/github", githubController);
 
 app.get("/app", (req, res) => {

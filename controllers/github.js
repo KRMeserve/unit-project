@@ -28,7 +28,21 @@ let access_token = null;
 // GET AND DISPLAY DAYA
 //===========================================
 const getAndDisplayData = res => {
-    res.json("access token was found");
+    console.log(
+        "access token was found and we're inside get and display data fn"
+    );
+    request(
+        {
+            uri: `${api_url}?access_token=${access_token}`,
+            method: "GET",
+            headers: {
+                "User-Agent": "CircuitConnection"
+            }
+        },
+        function(err, response, body) {
+            res.json(body);
+        }
+    );
 };
 
 //===========================================
@@ -43,7 +57,7 @@ router.get("/:id", (req, res) => {
         } else {
             console.log(foundUser);
             if (foundUser.githubUserToken !== null) {
-                console.log(`user token`);
+                console.log(`user token was already there`);
                 access_token = foundUser.githubUserToken;
                 getAndDisplayData(res);
             } else {
@@ -51,12 +65,41 @@ router.get("/:id", (req, res) => {
                 console.log(
                     `${authorize_url}?scope=user%3Aemail&client_id=${client_id}&redirect_uri=${encoded_redirect_uri}`
                 );
-                res.redirect(
-                    `${authorize_url}?scope=user%3Aemail&client_id=${client_id}&redirect_uri=${encoded_redirect_uri}`
-                );
+                res.json("User Token Not Found");
             }
         }
     });
+});
+
+//===========================================
+// AFTER 1st TIME AUTHORIZATION, GITHUB
+// REDIRECTS TO THIS URL
+//===========================================
+router.get("/callback", (req, res) => {
+    console.log(`entering callback route`);
+    const auth_code = req.query.code;
+    request(
+        {
+            uri: token_url,
+            method: "POST",
+            form: {
+                client_id: client_id,
+                client_secret: client_secret,
+                code: auth_code,
+                redirect_uri: redirect_uri
+            }
+        },
+        function(err, response, body) {
+            //===========================================
+            // RETRIEVE ACCESS TOKEN FROM BODY
+            //===========================================
+            access_token = body.split("&")[0].split("=")[1];
+            //===========================================
+            // LATER: NEED TO SAVE ACCESS TOKEN IN DB FOR EACH USER
+            //===========================================
+            getAndDisplayData(res);
+        }
+    );
 });
 
 module.exports = router;
