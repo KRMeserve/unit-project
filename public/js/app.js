@@ -501,7 +501,7 @@ function MainCtrl($http, $window) {
     //===========================================
     this.getGithubData = () => {
         const authorize_url = "https://github.com/login/oauth/authorize";
-        const redirect_uri = "https://localhost:3000/github/callback";
+        const redirect_uri = "https://circuit-connection.herokuapp.com/github/callback";
         const encoded_redirect_uri = encodeURIComponent(redirect_uri);
         const client_id = "806f2c024e556b9cd021";
         $http({
