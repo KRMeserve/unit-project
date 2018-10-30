@@ -349,6 +349,13 @@ function MainCtrl($http, $window) {
             });
         } else {
             console.log(`post request for brand statement`);
+        }
+        // WHERE IS THIS BEING CALLED FROM?
+
+        // ------- Delete user route -------
+        this.deleteUser = user => {
+            console.log(`entering delete user function`);
+            console.log(user);
             $http({
                 method: "PUT",
                 url: `/users/${this.currentUser._id}`,
@@ -358,12 +365,13 @@ function MainCtrl($http, $window) {
             }).then(
                 response => {
                     console.log(response);
+                    this.changePagePath("getStarted");
                 },
                 error => {
                     console.log(error);
                 }
             );
-        }
+        };
     };
 
     //===========================================
