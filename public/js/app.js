@@ -139,7 +139,7 @@ function MainCtrl($http, $window) {
     // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
     this.goToMap = () => {
         console.log("entering function goToMap");
-        $window.location.href = "/map";
+        $window.location.href = `/map?lat=${this.latitude}&lon=${this.longitude}`;
     };
 
     this.removeHiddenBox = () => {
@@ -206,6 +206,8 @@ function MainCtrl($http, $window) {
                 this.followers = response.data.followers;
                 this.projects = response.data.projects;
                 this.circuitPoints = response.data.circuitPoints;
+                this.latitude = response.data.latitude;
+                this.longitude = response.data.longitude;
                 this.changePagePath("dashboard");
                 console.log(this.currentUser);
                 // console.log(response);
@@ -384,6 +386,7 @@ function MainCtrl($http, $window) {
     this.githubEdit = false;
     this.addSkillField = false;
     this.addInterestField = false;
+    this.locationEdit = false;
 
     //===========================================
     // TOGGLES NAME EDIT ON CLICK
@@ -569,6 +572,33 @@ function MainCtrl($http, $window) {
             }
         );
     };
+
+    //===========================================
+    // TOGGLE ADD LOCATION FIELD ON CLICK
+    //===========================================
+    this.toggleLocationEdit = ()=>{
+        this.locationEdit = !this.locationEdit;
+    };
+
+    //===========================================
+    // ADD LOCATION FROM FIELD
+    //===========================================
+    this.locationUpdate = ()=>{
+        console.log('entering location update function');
+        $http({
+            method: "PUT",
+            url: "/users/" + this.currentUser._id,
+            data: {
+                latitude: this.latitude,
+                longitude: this.longitude
+            }
+        }).then(response=>{
+            console.log(response);
+            this.toggleLocationEdit();
+        }, error=>{
+            console.log(error);
+        })
+    }
 
     //===========================================
     // GET DATA FROM GITHUB API
