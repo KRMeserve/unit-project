@@ -80,10 +80,19 @@
     <div class="height20"></div>
     <div class="dFlex flexRow alignCenter">
         <div class="flex1 fWeight300 fPurple">Location:</div>
-        <div class="flex2 bgGreen cPointer pad10 tAlignCenter">CLICK TO SET LOCATION</div>
+        <div ng-click="ctrl.toggleLocationEdit()" class="flex2 bgGreen cPointer pad10 tAlignCenter">CLICK TO SET LOCATION</div>
     </div>
     <div class="height40"></div>
+    <form class="widthP100 height60 dFlex flexRow" ng-if="ctrl.locationEdit" ng-submit="ctrl.locationUpdate()">
+        <input class="flex1 pad10 fSize2 fQuicksand" type="number" ng-model="ctrl.latitude" step="0.001" placeholder="Enter Latitude">
+        <div class="width20"></div>
+        <input class="flex1 pad10 fSize2 fQuicksand" type="number" ng-model="ctrl.longitude" step="0.001" placeholder="Enter Longitude">
+        <div class="width20"></div>
+        <input class="flex1 heightP100 bgGreen fQuicksand fSize2 cPointer" type="submit" value="SUBMIT">
+    </form>
+    <div class="height40"></div>
     <div class="dFlex flexRow"></div>
-    <div id="map" class="widthP80 height60 mAuto bgGreen" ng-click="ctrl.goToMap()">SHOW MAP</div>
+    <div id="map" class="widthP100 height60 bgGreen dFlex center" ng-click="ctrl.goToMap()">SHOW MAP</div>
+    <div class="height40"></div>
 </div>
 <!-- GOOGLE MAPS STUFF - NOT WORKING YET -->

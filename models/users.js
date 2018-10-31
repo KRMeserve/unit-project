@@ -17,7 +17,8 @@ const userSchema = Schema({
     proficiency: String,
     skills: [String],
     interests: [String],
-    location: String
+    latitude: Number,
+    longitude: Number,
 });
 
 const User = mongoose.model("User", userSchema);

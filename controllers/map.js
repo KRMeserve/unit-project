@@ -4,7 +4,13 @@ const router = express.Router();
 
 router.get('/', (req, res)=>{
     console.log('got to map router');
-    res.render('map.ejs');
+    const latitude = req.query.lat;
+    const longitude = req.query.lon;
+    res.render('map.ejs', {
+        latitude: latitude,
+        longitude: longitude,
+        apiKey: process.env.MAP_API_KEY
+    });
     // request({
     //     uri: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDxI7hQ6FV7eJebME3a_nqIZ2vh7Shv0TQ&callback=initMap',
     //     method: 'GET'
