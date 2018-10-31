@@ -1,3 +1,7 @@
-<div ng-repeat="user in ctrl.allUsers">
-    <h3>{{ user }}</h3>
+<div>
+    <h1 class="fAclonica center fSize3">CIRCUIT</h1>
+    <!-- <h3>{{ user }}</h3> -->
+    <div class="" ng-repeat="user in ctrl.allUsers[0] track by $index">
+        <p class="fQuicksand fSize2">{{ user.username }}</p>
+    </div>
 </div>
