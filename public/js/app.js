@@ -21,6 +21,13 @@ function MainCtrl($http, $window) {
 
     this.tabPath = "partials/profile.html";
 
+    //===========================================
+    // FUNCTION FOR MOVING BETWEEN PAGES ON APP
+    //===========================================
+    this.changePagePath = path => {
+        this.pagePath = `partials/${path}.html`;
+    };
+
     this.changeIncludePath = path => {
         this.includePath = "partials/" + path + ".html";
     };
@@ -103,13 +110,6 @@ function MainCtrl($http, $window) {
 
     this.goToSession();
 
-    //===========================================
-    // FUNCTION FOR MOVING BETWEEN PAGES ON APP
-    //===========================================
-    this.changePagePath = path => {
-        this.pagePath = `partials/${path}.html`;
-    };
-
     // ------- Clearing Input Field Logic -------
     this.clearFields = () => {
         console.log(`Entering clear fields function`);
@@ -136,7 +136,8 @@ function MainCtrl($http, $window) {
         );
     };
     this.getAllUsers();
-    // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
+
+    // ------- GOOGLE MAPS STUFF -------
     this.goToMap = () => {
         console.log("entering function goToMap");
         $window.location.href = "/map";
