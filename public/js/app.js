@@ -24,6 +24,57 @@ function MainCtrl($http, $window) {
     };
 
     //===========================================
+    // FUNCTION TO GET PROFILE DETAILS ON LOGIN
+    //===========================================
+    this.profileDetails = (dataField, addText) => {
+        console.log(`entering profile details function`);
+        let fieldVariable;
+        if (dataField) {
+            fieldVariable = dataField;
+        } else {
+            fieldVariable = `CLICK HERE TO ADD ${addText}`;
+        }
+        return fieldVariable;
+    };
+
+    this.goToSession = () => {
+        $http({
+            method: "GET",
+            url: "/sessions"
+        }).then(response => {
+            console.log(response);
+            if (response.data.currentUser) {
+                this.pagePath = "partials/dashboard.html";
+                console.log(response.data.currentUser);
+                this.currentUser = response.data.currentUser;
+
+                //
+                this.name = this.profileDetails(this.currentUser.name, "NAME");
+                this.brandStatement = this.profileDetails(
+                    this.currentUser.brandStatement,
+                    "BRAND STATEMENT"
+                );
+                this.proficiency = this.profileDetails(
+                    this.currentUser.proficiency,
+                    "PROFICIENCY"
+                );
+                this.github = this.profileDetails(
+                    this.currentUser.github,
+                    "GITHUB LINK"
+                );
+                if (this.currentUser.skills) {
+                    this.skills = this.currentUser.skills;
+                }
+                if (this.currentUser.interests) {
+                    this.interests = this.currentUser.interests;
+                }
+            }
+        });
+    };
+
+    this.goToSession();
+
+    //===========================================
     // FUNCTION FOR MOVING BETWEEN PAGES ON APP
     //===========================================
     this.changePagePath = path => {
@@ -120,19 +171,6 @@ function MainCtrl($http, $window) {
             setTimeout(this.removeHiddenBox, 150);
         }
     };
-    //===========================================
-    // FUNCTION TO GET PROFILE DETAILS ON LOGIN
-    //===========================================
-    this.profileDetails = (dataField, addText) => {
-        console.log(`entering profile details function`);
-        let fieldVariable;
-        if (dataField) {
-            fieldVariable = dataField;
-        } else {
-            fieldVariable = `CLICK HERE TO ADD ${addText}`;
-        }
-        return fieldVariable;
-    };
 
     // ------- Sessions Log In Route -------
     this.logIn = () => {
@@ -149,6 +187,7 @@ function MainCtrl($http, $window) {
                 this.password = "";
                 this.username = "";
                 this.currentUser = response.data;
+                console.log(response.data);
                 this.name = this.profileDetails(response.data.name, "NAME");
                 this.brandStatement = this.profileDetails(
                     response.data.brandStatement,

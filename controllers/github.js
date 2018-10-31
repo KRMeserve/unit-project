@@ -16,6 +16,8 @@ const api_url = "https://api.github.com/user";
 const redirect_uri = process.env.REDIRECT_URI;
 const encoded_redirect_uri = encodeURIComponent(redirect_uri);
 
+const redirect_home = process.env.REDIRECT_HOME;
+
 //===========================================
 // CLIENT ID AND CLIENT SECRET
 //===========================================
@@ -27,7 +29,7 @@ let access_token = null;
 //===========================================
 // GET AND DISPLAY DAYA
 //===========================================
-const getAndDisplayData = res => {
+const getAndDisplayData = (res, req) => {
     console.log(
         "access token was found and we're inside get and display data fn"
     );
@@ -40,7 +42,11 @@ const getAndDisplayData = res => {
             }
         },
         function(err, response, body) {
-            res.json(body);
+            // const image = body.avatar_url;
+            // console.log(body.avatar_url);
+            // res.json(JSON.parse(body));
+            req.session.github = JSON.parse(body);
+            res.redirect("/");
         }
     );
 };
@@ -79,7 +85,7 @@ router.get("/callback", (req, res) => {
             //===========================================
             // LATER: NEED TO SAVE ACCESS TOKEN IN DB FOR EACH USER
             //===========================================
-            getAndDisplayData(res);
+            getAndDisplayData(res, req);
         }
     );
 });
@@ -98,28 +104,13 @@ router.get("/:id", (req, res) => {
             if (foundUser.githubUserToken !== null) {
                 console.log(`user token was already there`);
                 access_token = foundUser.githubUserToken;
-                getAndDisplayData(res);
+                getAndDisplayData(res, req);
             } else {
                 console.log(`user token is not found`);
-                console.log(
-                    `${authorize_url}?scope=user%3Aemail&client_id=${client_id}&redirect_uri=${encoded_redirect_uri}`
-                );
                 res.json("User Token Not Found");
             }
         }
     });
-});
-
-//===========================================
-// REDIRECT ROUTE
-//===========================================
-router.get("/redirect", (req, res) => {
-    console.log(`entering redirect route`);
-    res.render("github.ejs");
-});
-
-router.get("/authorize", (req, res) => {
-    res.redirect("/map");
 });
 
 module.exports = router;
