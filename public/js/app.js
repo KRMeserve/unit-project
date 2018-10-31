@@ -12,6 +12,7 @@ function MainCtrl($http, $window) {
     this.interests = [];
     this.currentTabId = 1;
     this.allUsers = [];
+    this.image = "../img/user_image.png";
 
     // ------- Partials Logic -------
     this.includePath = "partials/signup.html";
@@ -46,7 +47,7 @@ function MainCtrl($http, $window) {
             console.log(response);
             if (response.data.currentUser) {
                 this.pagePath = "partials/dashboard.html";
-                console.log(response.data.currentUser);
+                console.log(response.data);
                 this.currentUser = response.data.currentUser;
 
                 //
@@ -69,6 +70,33 @@ function MainCtrl($http, $window) {
                 if (this.currentUser.interests) {
                     this.interests = this.currentUser.interests;
                 }
+
+                this.image = response.data.github.avatar_url;
+                this.followers = response.data.github.followers;
+                this.projects = response.data.github.public_repos;
+                const { following, public_gists } = response.data.github;
+                this.circuitPoints =
+                    this.followers * 10 +
+                    this.projects * 5 +
+                    following +
+                    public_gists * 3;
+                $http({
+                    method: "PUT",
+                    url: "/users/" + this.currentUser._id,
+                    data: {
+                        profilePic: this.image,
+                        followers: this.followers,
+                        projects: this.projects,
+                        circuitPoints: this.circuitPoints
+                    }
+                }).then(
+                    response => {
+                        console.log(response);
+                    },
+                    error => {
+                        console.log(error);
+                    }
+                );
             }
         });
     };
@@ -92,63 +120,28 @@ function MainCtrl($http, $window) {
         this.password = "";
     };
 
-        // ------- ALL USERS FUNCTION FOR CIRCUIT PAGE -------
-        this.getAllUsers = ()=>{
-            $http({
-                method: 'GET',
-                url: '/users'
-            }).then(response=>{
-                this.allUsers = [response.data]
+    // ------- ALL USERS FUNCTION FOR CIRCUIT PAGE -------
+    this.getAllUsers = () => {
+        $http({
+            method: "GET",
+            url: "/users"
+        }).then(
+            response => {
+                this.allUsers = [response.data];
                 console.log(this.allUsers);
             },
             error => {
                 console.log(error);
-            })
-        }
-        this.getAllUsers();
-        // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
-        this.goToMap = ()=>{
-            console.log('entering function goToMap');
-            $window.location.href = '/map';
-        }
+            }
+        );
+    };
+    this.getAllUsers();
+    // ------- GOOGLE MAPS STUFF ------- (NOT WORKING)
+    this.goToMap = () => {
+        console.log("entering function goToMap");
+        $window.location.href = "/map";
+    };
 
-    // this.initMap = ()=>{
-    //     let latLong = {lat: -25.344, lng: 131.036};
-    //     let map = new google.maps.Map(
-    //         document.getElementById('map'), {zoom: 4, center: latLong});
-    //     let marker = new google.maps.Marker({position: latLong, map: map});
-    // };
-    //
-    // this.loadMap = ()=>{
-    //     console.log('running function loadMap');
-    //     $http({
-    //         method: 'GET',
-    //         url: '/map'
-    //     }).then(response=>{
-    //         console.log('ran loadMap function');
-    //         console.log(response);
-    //     }, error =>{
-    //         console.log(error);
-    //     })
-    // }
-
-    // ------- END OF GOOGLE MAPS STUFF -------
-
-    // ------- Sets Session ------- OBSOLETE CODE
-    // this.goApp = () => {
-    //   $http({
-    //     method: "GET",
-    //     url: "/app"
-    //   }).then(
-    //     response => {
-    //       this.currentUser = response.data.username;
-    //       console.log(this.currentUser);
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     }
-    //   );
-    // };
     this.removeHiddenBox = () => {
         console.log("running");
         $("#hiddenLogOutBox").addClass("hiddenBox");
@@ -207,6 +200,12 @@ function MainCtrl($http, $window) {
                 if (response.data.interests) {
                     this.interests = response.data.interests;
                 }
+                if (response.data.profilePic) {
+                    this.image = response.data.profilePic;
+                }
+                this.followers = response.data.followers;
+                this.projects = response.data.projects;
+                this.circuitPoints = response.data.circuitPoints;
                 this.changePagePath("dashboard");
                 console.log(this.currentUser);
                 // console.log(response);
@@ -431,29 +430,22 @@ function MainCtrl($http, $window) {
             });
         } else {
             console.log(`post request for brand statement`);
-        }
-        // WHERE IS THIS BEING CALLED FROM?
-
-        // ------- Delete user route -------
-        this.deleteUser = user => {
-            console.log(`entering delete user function`);
-            console.log(user);
             $http({
                 method: "PUT",
-                url: `/users/${this.currentUser._id}`,
+                url: "/users/" + this.currentUser._id,
                 data: {
                     brandStatement: this.brandStatement
                 }
             }).then(
                 response => {
                     console.log(response);
-                    this.changePagePath("getStarted");
                 },
                 error => {
                     console.log(error);
                 }
             );
-        };
+        }
+        // WHERE IS THIS BEING CALLED FROM?
     };
 
     //===========================================
@@ -653,3 +645,62 @@ function MainCtrl($http, $window) {
 // WHICH INVOLVES A COMPLICATED METHOD WHICH INVOLVES CREATING A SERVICE
 // AND INJECTING IT IN THE CONTROLLER
 // SO I'VE MOVED ALL THE STUFF IN THE CONTROLLER BACK INTO APP CONTROLLER
+
+// ------- Delete user route -------
+// this.deleteUser = user => {
+//     console.log(`entering delete user function`);
+//     console.log(user);
+//     $http({
+//         method: "PUT",
+//         url: `/users/${this.currentUser._id}`,
+//         data: {
+//             brandStatement: this.brandStatement
+//         }
+//     }).then(
+//         response => {
+//             console.log(response);
+//             this.changePagePath("getStarted");
+//         },
+//         error => {
+//             console.log(error);
+//         }
+//     );
+// };
+
+// this.initMap = ()=>{
+//     let latLong = {lat: -25.344, lng: 131.036};
+//     let map = new google.maps.Map(
+//         document.getElementById('map'), {zoom: 4, center: latLong});
+//     let marker = new google.maps.Marker({position: latLong, map: map});
+// };
+//
+// this.loadMap = ()=>{
+//     console.log('running function loadMap');
+//     $http({
+//         method: 'GET',
+//         url: '/map'
+//     }).then(response=>{
+//         console.log('ran loadMap function');
+//         console.log(response);
+//     }, error =>{
+//         console.log(error);
+//     })
+// }
+
+// ------- END OF GOOGLE MAPS STUFF -------
+
+// ------- Sets Session ------- OBSOLETE CODE
+// this.goApp = () => {
+//   $http({
+//     method: "GET",
+//     url: "/app"
+//   }).then(
+//     response => {
+//       this.currentUser = response.data.username;
+//       console.log(this.currentUser);
+//     },
+//     error => {
+//       console.log(error);
+//     }
+//   );
+// };

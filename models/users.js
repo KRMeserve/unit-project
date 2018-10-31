@@ -7,7 +7,7 @@ const userSchema = Schema({
     comments: [String],
     portfolioCustomizations: String,
     profilePic: String,
-    followers: [String],
+    followers: { type: Number, default: 0 },
     projects: { type: Number, default: 0 },
     circuitPoints: { type: Number, default: 0 },
     github: String,

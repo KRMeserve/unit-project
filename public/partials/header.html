@@ -5,14 +5,15 @@
             Welcome to the circuit{{(ctrl.name==='CLICK HERE TO ADD NAME')?"":', '+ ctrl.name}}</p>
         <div class="fHeight width20"></div>
         <div class="width60 height60 bRad30">
-            <img ng-src="../img/profile_image.jpg" alt="" class="width60 height60 bRad30" />
+            <img ng-src="{{ctrl.image}}" alt="" class="width60 height60 bRad30" />
         </div>
         <div class="fHeight width20"></div>
         <img id="show-options-image" ng-src="../img/show-options.png" alt="" class="width30 height20" ng-click="ctrl.logOutHidden()" />
     </div>
 </div>
 <div id="hiddenLogOutBox" class="hiddenBox dFlex justifyEnd widthP95 bgTransparent strangePosition">
-    <div class="pad10 width200 dFlex center hoverRed cPointer fWeight500 bgPurple fWhite fQuicksand border15White" ng-click="ctrl.deleteUser(ctrl.currentUser)">DELETE ACCOUNT</div>
+    <div class="pad10 width200 dFlex center hoverRed cPointer fWeight500 bgPurple fWhite fQuicksand border15White"
+        ng-click="ctrl.deleteUser(ctrl.currentUser)">DELETE ACCOUNT</div>
     <div class="pad10 width100 dFlex center hoverGreen cPointer fWeight500 bgPurple fWhite fQuicksand border15White"
         ng-click="ctrl.logOut()">LOG OUT</div>
 </div>
